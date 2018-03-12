@@ -1,0 +1,654 @@
+$font-stack: 24px 'Droid Sans', Arial, sans-serif;
+$tall: 22px;
+$reg: 14px;
+$global-font-stack: 14px 'Droid Sans', Arial, sans-serif;
+$heading-font-stack: 62px Bookman Old Style, 'Droid Serif', Times New Roman, serif;
+$primary-color: #4d4d4d;
+$primary-style-color: #921E20;
+$secondary-style-color: #E7E7E7;
+$separator: 1px solid;
+$flex: 100%;
+$gate-size: 75px;
+$marker-size: 40px;
+$popup-size: 650px;
+$icon-size: 75px;
+$spacing: 10px;
+$text: center;
+$center: 0 auto;
+$pink: #FF00FF;
+$blue: #0000FF;
+$purple: #93278F;
+
+@mixin radius($radius...){
+	/* Firefox 1-3.6 */
+	-moz-border-radius: $radius;
+	/* Safari 3-4, iOS 1-3.2, Android 1.6- */
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin shadow($shadow...){
+	-webkit-box-shadow: $shadow;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  	-moz-box-shadow: $shadow;  /* Firefox 3.5 - 3.6 */
+  	box-shadow: $shadow;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+
+@import "reset.scss";
+@import 'https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400,700,700i';
+
+/************
+END Reset Styles
+************/
+
+/*****
+Extend styles
+*****/
+
+.goTop{
+	display: inline-block;
+	margin-left: -4px;
+	vertical-align: top;
+}
+
+.goBottom{
+	display: inline-block;
+	margin-left: -4px;
+	vertical-align: bottom;
+}
+
+.goMiddle{
+	display: inline-block;
+	margin-top: -3px;
+	vertical-align: middle;
+}
+
+/************
+Standard Styles
+************/
+.col_two{
+	@extend .goTop;
+	width: 50%;
+	padding: $spacing;
+	border-right: #d7d7d7 $separator;
+}
+.col_two:last-child{
+	border: none;
+}
+.separator{
+	border: $separator #d7d7d7;
+}
+
+.topSep{
+	border-top: $separator #d7d7d7;
+}
+.bottomSep{
+	border-bottom: $separator #d7d7d7;
+}
+
+
+/************
+Map Styles USE ID #sf
+************/
+.et_post_gallery{
+	display: none;
+}
+div#sf{
+	/*g.unavailable g polygon, g.unavailable g rect{
+		fill: $secondary-style-color !important;
+	}*/
+	#legend{
+		margin-top: $spacing*4;
+	}
+	#legend li{
+		@extend .goTop;
+		margin: $spacing*1.5;
+	}
+	#legend li span {
+		@extend .goMiddle;
+		margin-right: $spacing*2;
+	    padding: $spacing/2 $spacing*1.1;
+	    border-radius: 100%;
+	    color: white;
+	    font: 700 $font-stack;
+	}
+	#legend li span.pink{
+		background: $pink;
+	}
+	#legend li span.blue{
+		background: $blue;
+	}
+	#legend li span.purple{
+		background: $purple;
+	}
+	#legend li p{
+		@extend .goMiddle;
+	}
+	input[type=range] {
+	  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+	  width: $flex; /* Specific width is required for Firefox. */
+	  background: transparent; /* Otherwise white in Chrome */
+	}
+
+	input[type=range]::-webkit-slider-thumb {
+	  -webkit-appearance: none;
+	}
+
+	input[type=range]:focus {
+	  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+	}
+
+	input[type=range]::-ms-track {
+	  width: 100%;
+	  cursor: pointer;
+
+	  /* Hides the slider so custom styles can be added */
+	  background: transparent; 
+	  border-color: transparent;
+	  color: transparent;
+	}
+	/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: $separator $primary-color;
+  height: 26px;
+  width: 10px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px $primary-color, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px $primary-color, 0px 0px 1px #0d0d0d;
+  border: $separator $primary-color;
+  height: 26px;
+  width: 10px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px $primary-color, 0px 0px 1px #0d0d0d;
+  border: $separator $primary-color;
+  height: 26px;
+  width: 10px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px $primary-color, 0px 0px 1px #0d0d0d;
+  background: $primary-style-color;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: $primary-style-color;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px $primary-color, 0px 0px 1px #0d0d0d;
+  background: $primary-style-color;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 10px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px $primary-color, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: $primary-style-color;
+}
+input[type=range]::-ms-fill-upper {
+  background: $primary-style-color;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px $primary-color, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: $primary-style-color;
+}
+	button, input[type="button"]{
+		cursor: pointer;
+		 color: $secondary-style-color;
+		 border: none;
+		 font: $global-font-stack;
+		 background: $primary-style-color;
+		text-transform: uppercase;
+		padding: $spacing;
+		margin-left: $spacing;
+		vertical-align: sub;
+	}
+	input[type="button"].scndBtn, button.scndBtn{
+		color: $primary-style-color;
+		background: white;
+		font: bold $global-font-stack;
+		padding: $spacing;
+		padding-bottom: $spacing/2;
+		width: $flex;
+		max-width: 275px;
+	}
+	.myriad, .myriadReg, .myriadGlobal{
+		font: $font-stack;
+		font-weight: 700;
+		color: $primary-color;
+		text-transform: uppercase;
+	}
+
+	.myriadGlobal{
+		font: $global-font-stack;
+	}
+
+	.myriadReg{
+		font-weight: 400;
+	}
+
+	h1, h2, h3, h4, h5, .book{
+		font: $heading-font-stack;
+		font-weight: 400;
+	}
+
+	ul, ol{
+		list-style: none;
+		padding: 0;
+	}
+
+	#filters{
+		font-size: $reg;
+		float: right;
+		top: -260px;
+    	position: relative;
+    	width: 20%;
+	}
+
+	#filters div, #filters label, #filters input, #filters select {
+	    margin-right: $spacing*4;
+	    margin-bottom: $spacing;
+	    display: block;
+	}
+
+	#filters input{
+		@include radius(3px 3px 3px 3px);
+	}
+
+	#filters select{
+		display: block;
+		font: bold $global-font-stack;
+		text-transform: uppercase;
+		font-size: $reg/1.25;
+		position: relative;
+		padding-right: $spacing/2;
+	    border: $separator #ccc !important;
+	    @include radius(3px 3px 3px 3px);
+	    width: $flex;
+	}
+
+	/**
+	Seating Chart SVG
+	**/
+	g.available{
+		g{
+			cursor: pointer;
+		}
+	}
+
+	.popup, .popup-full{
+		visibility: hidden;
+		font-size: 24px;
+		padding: $spacing;
+		position: absolute;
+		width: $flex;
+		max-width: $popup-size;
+		z-index: 9999;
+
+		#popup-galleries{
+			width: $flex;
+			margin: 0 auto;
+		}
+
+		.wrapper{
+			background: $secondary-style-color;
+			padding: $spacing;
+			border: white $separator;
+			@include radius(6px 6px 6px 6px);
+			@include shadow(0px 0px 3px 2px #cccccc);
+		}
+
+		.popupTitle{
+			text-align: center;
+		    width: $flex;
+		    margin-bottom: $spacing;
+		    color: $secondary-style-color;
+		}
+
+		.popupTitle small{
+			background: $primary-style-color;
+		    padding: $spacing/2 $spacing;
+		    @include radius(6px 6px 6px 6px);
+		    font-size: $reg;
+		}
+
+		/*.popup-gallery, .standard-gallery{
+			@extend .goTop;
+		}*/
+
+		.bx-wrapper{
+			@extend .goTop;
+			margin: 0 $spacing/3 $spacing;
+			vertical-align: bottom;
+
+			.bx-controls{
+				position: relative;
+				top: -25px;
+			}
+
+			.bx-pager.bx-default-pager a {
+			    background: $secondary-style-color;
+			}
+
+			.bx-pager.bx-default-pager a:hover, .bx-pager.bx-default-pager a.active {
+			    background: #FF0000;
+			}
+		}
+
+		img{
+			/*width: 43%;
+			margin: $spacing;*/
+			border: white $separator;
+			@include shadow(0px 0px 3px 0px #000000);
+		}
+
+		h1, h2, h3, h4{
+			font: 700 $global-font-stack;
+			font-size: 30px;
+			padding: 0;
+		}
+		h3{
+			font-size: 20px;
+		}
+		figure{
+    		margin: $center;
+		}
+		section + section, article, p a{
+			text-transform: none;
+		}
+
+		article, p a{
+			font-size: 16px;
+		}
+
+		article, p a, section{
+			padding-bottom: $spacing;
+		}
+
+		.secRow{
+		}
+
+		.creds{
+				margin: 0 $spacing $spacing 0;
+				@extend .goBottom;
+					img, #et-bbb{
+					max-width: $icon-size*2;
+				    border: none;
+				    box-shadow: none;
+				    @extend .goBottom;
+				    margin: 0;
+				    position: relative;
+				}
+				#et-bbb img{
+					max-width: $icon-size*1.34;
+				}
+			}
+
+		section.buy{
+			@extend .goBottom;
+
+			.qty{
+			    color: $primary-style-color;
+			    font: bold $global-font-stack;
+			    text-transform: uppercase;
+			    font-size: $reg*1.25;
+			    @extend .goMiddle;
+			    text-align: center;
+			    margin-left: 3px;
+			    text-indent: -10px;
+			}
+
+			select.qty {
+			    min-width: 55px;
+			    color: $primary-color !important;
+			    text-indent: 0;
+			}
+		}
+
+		article.sectionExcerpt, .seatArea select{
+			font: 700 $global-font-stack
+		}
+
+		.seatArea span{
+				@extend .goMiddle;
+			    overflow: hidden;
+			    padding: 0 $spacing/2 0 0;
+		}
+
+		.seatArea select{
+		        border: none;
+			    background: transparent;
+			    font-size: 18px;
+			    width: $flex/1.43;
+		}
+
+		.seatArea small{
+			font-size: $tall/1.1;
+		}
+
+		.btnLink{
+			color: $primary-style-color;
+			font: bold $global-font-stack;
+			text-transform: uppercase;
+		}
+
+		section.prdExcerpt{
+			min-height: 120px;
+		}
+
+		p, a, section.prdExcerpt{
+			padding: 0;
+		}
+
+		.quantity_select {
+			margin-top: $spacing;
+			text-indent: 0;
+		}
+	}
+
+	.cover{
+		background-color: black;
+		width: 100%;
+		height: 100%;
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; // IE8;
+		filter: alpha(opacity=50); // IE 5-7
+		opacity: .5;
+		z-index: 1000;
+	}
+
+	.popup-full{
+		    position: fixed;
+		    width: 65%;
+		    max-width: $popup-size*3;
+		    top: 20%;
+		    left: 18%;
+		    z-index: 99999;
+
+		    h1, h2, h3, h4{
+		    	margin-bottom: $spacing;
+		    }
+
+		    .wrapper{
+		    	@include shadow(0px 0px 0px 0px);
+		    }
+
+		    button, input[type="button"] {
+			    margin-bottom: $spacing;
+			}
+
+		    section.buy{
+		    	float: left;
+		    	margin-right: $spacing*1.5;
+				padding: 2% 0;
+		    }
+
+		    section.buy .qty {
+			    position: relative;
+			    left: 5px;
+			}
+
+			.quantity_select{
+				left: 0;
+			}
+
+		    .prdDescription {
+		    	
+		    	h5, h6{
+		    		font: 700 $global-font-stack;
+					font-size: $tall;
+		    	}
+
+		    	h6{
+		    		font-size: $tall/1.2;
+		    	}
+		    }
+
+		    .bottomSep{
+		    	border: none;
+		    	padding-bottom: $spacing*2;
+
+		    	h1{
+		    		padding: $spacing;
+		    	}
+		    }
+
+		    .topSep{
+		    	padding-top: $spacing*2;
+		    }
+
+		    .prdContent{
+		    	max-height: $popup-size/6;
+		    	overflow-y: auto;
+		    	font-weight: 700;
+		    	padding: $spacing;
+		    	padding-top: $spacing*2;
+		    }
+	}
+}
+
+/***********
+Media Queries
+************/
+
+@media only screen and (max-width: 800px){
+	div#sf #filters{
+		top: -345px;
+		width: 35%;
+	}
+}
+
+@media only screen and (max-width: 700px){
+	#legend, div#sf .popup #popup-galleries, div#sf .popup-full #popup-galleries{
+		display: none;
+	}
+	div#sf #filters{
+
+	}
+	div#sf .popup{
+		position: relative;
+		left: 0 !important;
+		top: 0 !important;
+		z-index: 1;
+	}
+	div#sf .popup-full{
+		width: $flex;
+		left: 0% !important;
+	}
+	div#sf .popup h1, div#sf .popup h2, div#sf .popup-full h1, div#sf .popup-full h2{
+		font-size: $tall;
+	}
+	div#sf .popup h3, div#sf .popup h4, div#sf .popup-full h3, div#sf .popup-full h4, div#sf .popup .seatArea select, div#sf .popup-full .seatArea select, div#sf .myriad, div#sf .myriadReg, div#sf .myriadGlobal, div#sf .popup-full .prdDescription h5, div#sf .popup-full .prdDescription h6{
+		font-size: $reg;
+	}
+	div#sf .popup article.sectionExcerpt, div#sf .popup .seatArea select, div#sf .popup-full article.sectionExcerpt, div#sf .popup-full .seatArea select, div#sf .popup article, div#sf .popup p a, div#sf .popup-full article, div#sf .popup-full p a{
+		font-size: 13px;
+	}
+	div#sf button, div#sf input[type="button"]{
+		font-size: 12px;
+		padding: 5px;
+	}
+	div#sf .popup .btnLink, div#sf .popup-full .btnLink, div#sf .popup .popupTitle small, div#sf .popup-full .popupTitle small{
+		font-size: 12px;
+		@include radius(0px 0px 0px 0px);
+	}
+	div#sf .popup section.buy img, div#sf .popup-full section.buy img {
+    	max-width: 42px;
+    }
+    div#sf .popup section.buy .qty, div#sf .popup-full section.buy .qty{
+    	font-size: 11px;
+    }
+    div#sf .popup article, div#sf .popup p a, div#sf .popup section, div#sf .popup-full article, div#sf .popup-full p a, div#sf .popup-full section{
+    	padding-bottom: $spacing/2;
+    }
+    div#sf .popup section.buy, div#sf .popup-full section.buy {
+	    padding-bottom: $spacing*2.1;
+	}
+	div#sf .popup .wrapper, div#sf .popup-full .wrapper{
+		border: $separator #CCCCCC;
+		@include radius(0px 0px 0px 0px);
+		@include shadow(0px 0px 0px 0px);
+	}
+	div#sf .popup .popupTitle, div#sf .popup-full .popupTitle{
+		margin-bottom: 4px;
+	}
+}
+
+@media only screen and (max-width: 500px){
+	div#sf .popup{
+		display: block !important;
+		visibility: visible !important;
+	}
+	div#sf .popup h1, div#sf .popup h2, div#sf .popup-full h1, div#sf .popup-full h2 {
+	    font-size: 18px;
+	}
+	div#sf #filters{
+		top: 0;
+	    width: $flex;
+	    float: none;
+	}
+}
+

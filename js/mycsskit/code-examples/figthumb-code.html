@@ -1,0 +1,55 @@
+<h5>HTML Example</h5>
+<xmp>
+<figure class="thumb">
+	<a href="#"><img src="yourimage.jpg" align="" /></a>
+    <figcaption>
+    	Say something awesome in this caption.
+    </figcaption>
+</figure>
+</xmp>
+
+<h5>CSS Example</h5>
+<xmp>
+/*** Figure thumbnail ***/
+
+figure.thumb{
+	width: 200px;
+}
+
+figure.thumb img{
+	width: 100%;
+	position:relative;
+	/* Chrome 10+,Safari */
+	-webkit-transition: all 240ms ease-in-out;
+	/* Firefox 4+ */
+	-moz-transition: all 240ms ease-in-out;
+	/* IE 9,10 */
+	-ms-transition: all 240ms ease-in-out;
+	/* Opera */
+	-o-transition: all 240ms ease-in-out;
+	/* W3C */
+	transition: all 240ms ease-in-out;
+}
+
+figure.thumb img:hover, figure.thumb img:focus, figure.thumb img:active{
+	width: 300%;
+	left: -100%;
+	border: #FFF solid 5px;
+	-moz-box-shadow: 0 0 15px 1px #000000;
+	-webkit-box-shadow: 0 0 15px 1px #000000;
+	box-shadow: 0 0 15px 1px #000000;
+	z-index: 9999;
+}
+
+figure.thumb a:hover:before, figure.thumb a:focus:before, figure.thumb a:active:before{
+	content:"\00a0";
+	width: 10%;
+	height: 10px;
+	background-color: transparent;
+	position: absolute;
+	box-shadow: 0 0 0 4000px #464646;
+	top: 0;
+	left: 0;
+	opacity: 0.75;
+}
+</xmp>

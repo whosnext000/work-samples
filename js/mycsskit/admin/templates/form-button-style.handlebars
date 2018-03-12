@@ -1,0 +1,33 @@
+input[type="button"]{
+	padding: 5px 20px;
+	background: #{{colorOne}}; /* Old browsers */
+	background: -moz-linear-gradient(top,  #{{colorOne}} 0%, #{{colorTwo}} 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{{colorOne}}), color-stop(100%,#{{colorTwo}})); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #{{colorOne}} 0%,#{{colorTwo}} 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #{{colorOne}} 0%,#{{colorTwo}} 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #{{colorOne}} 0%,#{{colorTwo}} 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #{{colorOne}} 0%,#{{colorTwo}} 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{{colorOne}}', endColorstr='#{{colorTwo}}',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #{{borderColor}};
+	-moz-box-shadow: 0 0 1px 0 #{{shadowColor}};
+	-webkit-box-shadow: 0 0 1px 0 #{{shadowColor}};
+	box-shadow: 0 0 1px 0 #{{shadowColor}};
+	cursor: pointer;
+	/* Chrome 10+,Safari */
+	-webkit-transition: all {{transitionTime}}ms ease-in-out;
+	/* Firefox 4+ */
+	-moz-transition: all {{transitionTime}}ms ease-in-out;
+	/* IE 9,10 */
+	-ms-transition: all {{transitionTime}}ms ease-in-out;
+	/* Opera */
+	-o-transition: all {{transitionTime}}ms ease-in-out;
+	/* W3C */
+	transition: all {{transitionTime}}ms ease-in-out;
+}
+
+input[type="button"]:hover, input[type="button"]:active, input[type="button"]:focus{
+	-moz-box-shadow: 0 0 4px 0px #{{hoverShadowColor}};
+	-webkit-box-shadow: 0 0 4px 0px #{{hoverShadowColor}};
+	box-shadow: 0 0 4px 0px #{{hoverShadowColor}};
+	outline: none;
+}

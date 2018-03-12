@@ -1,0 +1,67 @@
+<h5>HTML</h5>
+<xmp>
+<section>
+	<span><a class="yourButtonClass" href="#">Your Button</a></span>
+</section>
+</xmp>
+
+<h5>CSS Example</h5>
+<xmp>
+/*** Button One, Grey style ***/
+.BtnOne{
+	/* Other and Older browsers */
+	background:url(images/btn-grey.png) repeat-x 0 0;
+	/* Chrome,Safari4+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgb(232,232,232)), color-stop(100%,rgb(211,212,214)));
+	/* Chrome 10+,Safari */
+	background : -webkit-linear-gradient(top, rgb(232, 232, 232) 00%, rgb(211, 212, 214) 99%);
+	/* Firefox 4+ */ 
+	background : -moz-linear-gradient(top, rgb(232, 232, 232) 00%, rgb(211, 212, 214) 99%);
+	/* Opera */
+	background : -o-linear-gradient(top, rgb(232, 232, 232) 00%, rgb(211, 212, 214) 99%);
+	/* IE 10+ */
+	background : -ms-linear-gradient(top, rgb(232, 232, 232) 00%, rgb(211, 212, 214) 99%); 
+	/* W3C */
+	background : -linear-gradient(top, rgb(232, 232, 232) 00%, rgb(211, 212, 214) 99%);
+	/* IE 6-8 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#d3d4d6',GradientType=0 );
+	padding: 5px 20px;
+	border: 1px solid #F9F9F9;
+	color: #000000;
+	text-shadow: -1px 0 #f7f7f7, 0 -1px #f7f7f7, 0 1px #f7f7f7, -1px -1px #f7f7f7;
+	/* Firefox 4+ */
+	-moz-border-radius: 20px 20px 20px 20px;
+	/* Chrome 10+,Safari */
+	-webkit-border-radius: 20px 20px 20px 20px;
+	/* W3C*/
+	border-radius: 20px 20px 20px 20px;
+	/* Firefox 4+ */
+	-moz-box-shadow: 0px 5px 0px -1px #a7a7a7, 0 7px 1px -1px #464646, 0 7px 6px 0px #a7a7a7;
+	/* Chrome 10+,Safari */
+	-webkit-box-shadow: 0px 5px 0px -1px #a7a7a7, 0 7px 1px -1px #464646, 0 7px 6px 0px #a7a7a7;
+	/* W3C */
+	box-shadow: 0px 5px 0px -1px #a7a7a7, 0 7px 1px -1px #464646, 0 7px 6px 0px #a7a7a7;
+}
+
+
+.BtnOne:active{
+	/* Firefox 4+ */
+	-moz-box-shadow: 0px 4px 0px -1px #a7a7a7, 0 5px 1px -1px #464646, 0 5px 4px 0px #a7a7a7;
+	/* Chrome 10+,Safari */
+	-webkit-box-shadow: 0px 4px 0px -1px #a7a7a7, 0 5px 1px -1px #464646, 0 5px 4px 0px #a7a7a7;
+	/* W3C */
+	box-shadow: 0px 4px 0px -1px #a7a7a7, 0 5px 1px -1px #464646, 0 5px 4px 0px #a7a7a7;
+	position:relative;
+	top: 3px;
+	/* Chrome 10+,Safari */
+	-webkit-transition: all 40ms ease-in-out;
+	/* Firefox 4+ */
+	-moz-transition: all 40ms ease-in-out;
+	/* IE 9,10 */
+	-ms-transition: all 40ms ease-in-out;
+	/* Opera */
+	-o-transition: all 40ms ease-in-out;
+	/* W3C */
+	transition: all 40ms ease-in-out;
+}
+</xmp>

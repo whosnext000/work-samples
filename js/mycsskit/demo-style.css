@@ -1,0 +1,26 @@
+h1 {
+	border: none;
+}
+
+div#main {
+	background: transparent;
+}
+
+#rowOne, #rowTwo {
+	background: #f2f2f2;
+	border-radius: 8px;
+	padding: 4px;
+	box-shadow: 0 0 3px 0px #999999;
+	border: 1px solid #FFFFFF;
+}
+
+div#main #rowTwo section {
+	margin: 5px;
+	width: auto;
+	padding-bottom: 15px;
+}
+
+#rowThree {
+	width: 100%;
+	border-top: 1px solid #f2f2f2;
+}

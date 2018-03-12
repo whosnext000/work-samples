@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<!-- iOS -->
+<meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
+<title>Documentation - A tastey CSS kit</title>
+
+<!-- Styles -->
+<link rel="stylesheet" href="style.css" media="all" type="text/css" />
+
+</head>
+
+<body>
+
+<!-- Guidelines #############################
+1. Div id "main" is only for the preview container.
+2. Sections below main are for styling the previews CSS Elements.  You only need to place the code inside the section into your file.
+3. You can put the elements inside whatever tag you like.  The examples here are just the preferred tags.
+############################# -->
+
+<div id="main">
+<div id="innerContent">
+
+<h1>Documentation</h1>
+
+<h3>For automated customization, use the <a href="admin/dashboard.html">Dashboard</a></h3>
+
+<div id="rowOne">
+
+<!--#############################
+3D Buttons
+#############################-->
+
+<h2>Press Me! Buttons</h2>
+
+<ul>
+<li><i>Add the following code into your HTML/PHP/Other file where you would like your button to appear.</i></li>
+<li><i>Replace "yourButtonClass" with the appropriate button class.</i></li>
+<li><i><strong>Button Classes:</strong>  .BtnOne, .BtnTwo, .BtnThree, .BtnFour, .BtnFive, .BtnSix, .BtnOneIn, .BtnTwoIn, .BtnThreeIn, .BtnFourIn, .BtnFiveIn, .BtnSixIn</i></li>
+</ul>
+
+<section>
+	<span><a class="BtnOne" href="#">Button One</a></span>
+</section>
+
+<section>
+	<span><a class="BtnTwo" href="#">Button Two</a></span>
+</section>
+
+<section>
+	<span><a class="BtnThree" href="#">Button Three</a></span>
+</section>
+
+<section>
+	<span><a class="BtnFour" href="#">Button Four</a></span>
+</section>
+
+<section>
+	<span><a class="BtnFive" href="#">Button Five</a></span>
+</section>
+
+<section>
+	<span><a class="BtnSix" href="#">Button Six</a></span>
+</section>
+
+<!--#############################
+inset buttons 
+#############################-->
+
+<section>
+	<span><a class="BtnOneIn" href="#">Button One</a></span>
+</section>
+
+<section>
+	<span><a class="BtnTwoIn" href="#">Button Two</a></span>
+</section>
+
+<section>
+	<span><a class="BtnThreeIn" href="#">Button Three</a></span>
+</section>
+
+<section>
+	<span><a class="BtnFourIn" href="#">Button Four</a></span>
+</section>
+
+<section>
+	<span><a class="BtnFiveIn" href="#">Button Five</a></span>
+</section>
+
+<section>
+	<span><a class="BtnSixIn" href="#">Button Six</a></span>
+</section>
+
+</div><!-- #rowOne -->
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/buttons-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+
+<!--#############################
+Form Elements 
+#############################-->
+
+<div id="rowTwo">
+
+<h2>Form Elements</h2>
+<section>
+<h4>File Input</h4>
+<!--#############################-->
+	<form class="valignMid">
+    	<input type="file" name="file" id="cf" />
+        <label for="cf">Browse...</label>
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/file-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Select</h4>
+<!--#############################-->
+	<form id="select-style"><!-- This is necessary to style select -->
+    	<select>
+        	<option value="choose" selected disabled>Choose One</option>
+        	<option value="opt1">Option 1</option>
+            <option value="opt2">Option 2</option>
+        </select>
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/select-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Submit Input</h4>
+<!--#############################-->
+	<form method="post" action="index.html">
+    	<input type="submit" value="SUBMIT" name="s" id="s" />
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/submit-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Button Input</h4>
+<!--#############################-->
+	<form method="post" action="index.html">
+    	<input type="button" value="BUTTON" name="b" id="b" />
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/button-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Number Input</h4>
+<!--#############################-->
+	<form>
+    	<input type="number" value="" name="num" id="num" />
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/number-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Reset Input</h4>
+<!--#############################-->
+	<form>
+    	<input type="reset" value="Reset Form" />
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/reset-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Text Input</h4>
+<!--#############################-->
+	<form>
+    	<input type="text" value="Text..." onFocus="if (this.value == 'Text...'); this.value = '';" onBlur="if (this.value == ''); this.value = 'Text...';" />
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/text-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Color Input</h4>
+<!--#############################-->
+	<form class="valignMid">
+    	<input type="color" />
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/color-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Search Input</h4>
+<!--#############################-->
+	<form method="post" action="index.html">
+    	<input type="search" value="Search" onFocus="if (this.value =='Search'); this.value = '';" onBlur="if (this.value == ''); this.value = 'Search';" />
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/search-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Checkbox</h4>
+<!--#############################-->
+	<form class="checkradio">
+    	<input type="checkbox" name="check" id="cb" />
+        <label for="cb">Check</label>
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/checkbox-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+<section>
+<h4>Radio</h4>
+<!--#############################-->
+	<form class="checkradio">
+    	<input type="radio" name="radio" id="rb" />
+        <label for="rb">Radio</label>
+    </form>
+</section>
+
+<!--#############################
+Code Example
+#############################-->
+<iframe src="code-examples/radio-code.html" width="940" height="300"></iframe>
+<!--#############################
+Code Example
+#############################-->
+
+</div><!-- #rowTwo -->
+
+<div id="rowThree">
+
+<h2>Tags & CSS Plugins</h2>
+
+<h4>Figure & Figcaption (Thumbnail with Lightbox)</h4>
+<!--#############################-->
+<figure class="thumb">
+	<a href="#"><img src="images/envato_4_large.jpg" alt="" /></a>
+    <figcaption>
+    Hover or press and hold!
+    </figcaption>
+</figure>
+
+<!--#############################
+Documentation Code Example 
+#############################-->
+<iframe src="code-examples/figthumb-code.html" width="940" height="300"></iframe>
+<!--#############################
+End Documentation Code Example 
+#############################-->
+
+<h4>Figure & Figcaption</h4>
+<!--#############################-->
+<figure>
+	<a href="#"><img src="images/envato_4_large.jpg" alt="" /></a>
+    <figcaption>
+    Figure and figcaption are awesome HTML5 tags!
+    </figcaption>
+</figure>
+
+<!--#############################
+Documentation Code Example 
+#############################-->
+<iframe src="code-examples/figure-code.html" width="940" height="300"></iframe>
+<!--#############################
+End Documentation Code Example 
+#############################-->
+
+<h4>Image Preview</h4>
+<!--#############################-->
+<section class="imgPrev">
+<a href="#"><img src="images/envato_4_small.jpg" alt="" /></a>
+<div class="imgFull"><img src="images/envato_4_large.jpg" alt="" />
+<span class="imgCap">Here's an image caption<br/><small>You can add whatever you want here.</small></span>
+</div>
+</section>
+
+<!--#############################
+Documentation Code Example 
+#############################-->
+<iframe src="code-examples/imgprev-code.html" width="940" height="300"></iframe>
+<!--#############################
+Documentation Code Example 
+#############################-->
+
+</div><!-- #rowThree -->
+
+</div><!-- #main -->
+</div><!-- innerContent -->
+
+</body>
+</html>

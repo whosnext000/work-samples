@@ -1,0 +1,57 @@
+input[type="checkbox"]{
+	display: none;
+}
+
+input[type="checkbox"] + label{
+	width:15px;
+    height:15px;
+	display: inline-block;
+	vertical-align: middle;
+	text-indent: 27px;
+	line-height: 1.1em;
+	background: #{{colorOne}}; /* Old browsers */
+	background: -moz-linear-gradient(top,  #{{colorOne}} 0%, #{{colorTwo}} 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#{{colorOne}}), color-stop(100%,#{{colorTwo}})); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #{{colorOne}} 0%,#{{colorTwo}} 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #{{colorOne}} 0%,#{{colorTwo}} 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #{{colorOne}} 0%,#{{colorTwo}} 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #{{colorOne}} 0%,#{{colorTwo}} 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{{colorOne}}', endColorstr='#{{colorTwo}}',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #{{borderColor}};
+	-moz-box-shadow: 0 0 1px 0 #{{shadowColor}};
+	-webkit-box-shadow: 0 0 1px 0 #{{shadowColor}};
+	box-shadow: 0 0 1px 0 #{{shadowColor}};
+	cursor: pointer;
+	/* Chrome 10+,Safari */
+	-webkit-transition: all {{transitionTime}}ms ease-in-out;
+	/* Firefox 4+ */
+	-moz-transition: all {{transitionTime}}ms ease-in-out;
+	/* IE 9,10 */
+	-ms-transition: all {{transitionTime}}ms ease-in-out;
+	/* Opera */
+	-o-transition: all {{transitionTime}}ms ease-in-out;
+	/* W3C */
+	transition: all {{transitionTime}}ms ease-in-out;
+}
+
+input[type="checkbox"]:checked + label{
+	-moz-box-shadow: 0 0 4px 0px #{{checkedShadowcolor}};
+	-webkit-box-shadow: 0 0 4px 0px #{{checkedShadowcolor}};
+	box-shadow: 0 0 4px 0px #{{checkedShadowcolor}};
+}
+
+input[type="checkbox"]:checked + label:before{
+	content:"\00a0";
+	width: 5px;
+	height: 10px;
+	border: solid #{{checkedBorderColor}};
+	border-width: 0 3px 3px 0;
+	position: absolute;
+	margin-left: -23px;
+	margin-top:0;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}

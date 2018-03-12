@@ -1,0 +1,47 @@
+section.imgPrev:hover div.imgFull, section.imgPrev:focus div.imgFull, section.imgPrev:active div.imgFull{
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: absolute;
+	background-color: #{{borderColor}};
+	border: 5px solid #{{borderColor}};
+	margin-top: -331px;
+	margin-left: 69px;
+	-moz-box-shadow: 0 -7px 22px -7px #{{shadowColor}};
+	-webkit-box-shadow:0 -7px 22px -7px #{{shadowColor}};
+	box-shadow: 0 -7px 22px -7px #{{shadowColor}};
+}
+
+section.imgPrev span.imgCap, section.imgPrev div.imgFull{
+	display: none;
+}
+
+section.imgPrev:hover span.imgCap{
+	display: block;
+	text-align: center;
+	z-index: 999;
+	position:relative;
+	background-color: #{{borderColor}};
+	padding-bottom:10px;
+	padding-top:10px;
+}
+
+section.imgPrev a>img{
+	/* Chrome 10+,Safari */
+	-webkit-transition: all {{transitionTime}}ms ease-in-out;
+	/* Firefox 4+ */
+	-moz-transition: all {{transitionTime}}ms ease-in-out;
+	/* IE 9,10 */
+	-ms-transition: all {{transitionTime}}ms ease-in-out;
+	/* Opera */
+	-o-transition: all {{transitionTime}}ms ease-in-out;
+	/* W3C */
+	transition: all {{transitionTime}}ms ease-in-out;
+}
+
+section.imgPrev a>img:hover, section.imgPrev a>img:focus, section.imgPrev a>img:active{
+	-webkit-opacity: 0.5;
+	-moz-opacity: 0.5;
+	filter:alpha(opacity=50);
+	opacity: 0.5;
+}

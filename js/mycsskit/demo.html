@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<!-- iOS -->
+<meta name="viewport" content="width=device-width height=device-height initial-scale=1.0">
+<title>Demo - CSS3 Ultimate UI Kit</title>
+
+<!-- Styles -->
+<link rel="stylesheet" href="style.css" media="all" type="text/css" />
+<link rel="stylesheet" href="demo-style.css" media="all" type="text/css" />
+
+</head>
+
+<body>
+
+<!-- Guidelines #############################
+1. Div id "main" is only for the preview container.
+2. Sections below main are for styling the previews CSS Elements.  You only need to place the code inside the section into your file.
+3. You can put the elements inside whatever tag you like.  The examples here are just the preferred tags.
+############################# -->
+
+<div id="main">
+<div id="innerContent">
+
+<h1>CSS3 Ultimate UI Kit</h1>
+
+<h3>For automated customization, use the <a href="admin/dashboard.html">Dashboard</a></h3>
+
+<div id="rowOne">
+
+<!--#############################
+3D Buttons
+#############################-->
+
+<section>
+	<span><a class="BtnOne" href="#">Button One</a></span>
+</section>
+
+<section>
+	<span><a class="BtnTwo" href="#">Button Two</a></span>
+</section>
+
+<section>
+	<span><a class="BtnThree" href="#">Button Three</a></span>
+</section>
+
+<section>
+	<span><a class="BtnFour" href="#">Button Four</a></span>
+</section>
+
+<section>
+	<span><a class="BtnFive" href="#">Button Five</a></span>
+</section>
+
+<section>
+	<span><a class="BtnSix" href="#">Button Six</a></span>
+</section>
+
+<!--#############################
+inset buttons 
+#############################-->
+
+<section>
+	<span><a class="BtnOneIn" href="#">Button One</a></span>
+</section>
+
+<section>
+	<span><a class="BtnTwoIn" href="#">Button Two</a></span>
+</section>
+
+<section>
+	<span><a class="BtnThreeIn" href="#">Button Three</a></span>
+</section>
+
+<section>
+	<span><a class="BtnFourIn" href="#">Button Four</a></span>
+</section>
+
+<section>
+	<span><a class="BtnFiveIn" href="#">Button Five</a></span>
+</section>
+
+<section>
+	<span><a class="BtnSixIn" href="#">Button Six</a></span>
+</section>
+
+</div><!-- #rowOne -->
+
+
+<!--#############################
+Form Elements 
+#############################-->
+
+<div id="rowTwo">
+
+<h2>Form Elements</h2>
+<section>
+<!--#############################-->
+	<form class="valignMid">
+    	<input type="file" name="file" id="cf" />
+        <label for="cf">Browse...</label>
+    </form>
+</section>
+
+<section>
+<!--#############################-->
+	<form id="select-style"><!-- This is necessary to style select -->
+    	<select>
+        	<option value="choose" selected disabled>Choose One</option>
+        	<option value="opt1">Option 1</option>
+            <option value="opt2">Option 2</option>
+        </select>
+    </form>
+</section>
+
+<section>
+<!--#############################-->
+	<form method="post" action="index.html">
+    	<input type="submit" value="SUBMIT" name="s" id="s" />
+    </form>
+</section>
+
+<section>
+<!--#############################-->
+	<form method="post" action="index.html">
+    	<input type="button" value="BUTTON" name="b" id="b" />
+    </form>
+</section>
+
+<section>
+<!--#############################-->
+	<form>
+    	<input type="number" value="" name="num" id="num" />
+    </form>
+</section>
+
+<section>
+<!--#############################-->
+	<form>
+    	<input type="reset" value="Reset Form" />
+    </form>
+</section>
+<section>
+<!--#############################-->
+	<form>
+    	<input type="text" value="Text..." onFocus="if (this.value == 'Text...'); this.value = '';" onBlur="if (this.value == ''); this.value = 'Text...';" />
+    </form>
+</section>
+
+<section>
+<!--#############################-->
+	<form class="valignMid">
+    	<input type="color" />
+    </form>
+</section>
+
+<section>
+<!--#############################-->
+	<form method="post" action="index.html">
+    	<input type="search" value="Search" onFocus="if (this.value =='Search'); this.value = '';" onBlur="if (this.value == ''); this.value = 'Search';" />
+    </form>
+</section>
+
+<section>
+<!--#############################-->
+	<form class="checkradio">
+    	<input type="checkbox" name="check" id="cb" />
+        <label for="cb">Check</label>
+    </form>
+</section>
+<!-- #############################-->
+
+<section>
+<!--#############################-->
+	<form class="checkradio">
+    	<input type="radio" name="radio" id="rb" />
+        <label for="rb">Radio</label>
+    </form>
+</section>
+<!-- #############################-->
+
+</div><!-- #rowTwo -->
+
+<div id="rowThree">
+
+<h4>Figure & Figcaption (Thumbnail with Lightbox)</h4>
+<!--#############################-->
+<figure class="thumb">
+	<a href="#"><img src="images/envato_4_large.jpg" alt="" /></a>
+    <figcaption>
+    Hover or press and hold!
+    </figcaption>
+</figure>
+
+<h4>Figure & Figcaption</h4>
+<!--#############################-->
+<figure>
+	<a href="#"><img src="images/envato_4_large.jpg" alt="" /></a>
+    <figcaption>
+    Figure and figcaption are awesome HTML5 tags!
+    </figcaption>
+</figure>
+<!-- #############################-->
+
+<h4>Image Preview</h4>
+<!--#############################-->
+<section class="imgPrev">
+<a href="#"><img src="images/envato_4_small.jpg" alt="" /></a>
+<div class="imgFull"><img src="images/envato_4_large.jpg" alt="" />
+<span class="imgCap">Here's an image caption<br/><small>You can add whatever you want here.</small></span>
+</div>
+</section>
+
+</div><!-- #rowThree -->
+
+</div><!-- #main -->
+</div><!-- innerContent -->
+
+</body>
+</html>

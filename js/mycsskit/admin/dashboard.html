@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en-US">
+		<head>
+		        		<meta charset="utf-8" />
+		        		
+				<link rel="stylesheet" href="./css/style.css" type="text/css" media="all">
+		  	<link rel="stylesheet" href="../style.css" type="text/css" media="all">
+				<link rel="stylesheet" href="./css/jquery-ui-1.10.0.custom.min.css" type="text/css">
+				<link rel="stylesheet" href="./css/github.css" type="text/css">
+				<script src="./scripts/jquery.1.9.0.js" type="text/javascript"></script>				
+				<script src="./scripts/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
+				<script src="./scripts/handlebars.js" type="text/javascript"></script>
+				<script src="./scripts/templates.js" type="text/javascript"></script>
+				<script src="./scripts/highlight.pack.js" type="text/javascript"></script>
+				<script src="./jscolor/jscolor.js" type="text/javascript"></script>
+				<script src="./scripts/control-panel.js" type="text/javascript"></script>
+				<style id="button-preview-style" type="text/css"></style>
+				<style id="form-file-preview-style" type="text/css"></style>
+				<style id="number-preview-style" type="text/cass"></style>
+				<style id="select-preview-style" type="text/css"></style>
+				<style id="submit-preview-style" type="text/css"></style>
+				<style id="form-button-preview-style" type="text/css"></style>
+				<style id="reset-preview-style" type="text/css"></style>
+				<style id="text-preview-style" type="text/css"></style>
+				<style id="color-preview-style" type="text/css"></style>
+				<style id="search-preview-style" type="text/css"></style>
+				<style id="checkbox-preview-style" type="text/css"></style>
+				<style id="radio-preview-style" type="text/css"></style>
+				<style id="thumb-preview-style" type="text/css"></style>
+				<style id="figure-preview-style" type="text/css"></style>
+				<style id="img-preview-preview-style" type="text/css"></style>
+				<title>Customization Dashboard</title>
+		</head>
+		<body>
+				<div id="tabs">
+					<ul>
+						<li><a href="#customButton">Custom Button</a></li>
+						<li><a href="#customForm">Custom Form</a></li>
+						<li><a href="#customFigures">Custom Figures</a></li>
+					</ul>
+					<section class="tab" id="customButton" style="display:inline-block;">
+							<form name="button-generator" id="button-generator" data-element-type="button">
+								<h3>Preview</h3>
+								<div class="preview-pane" id="button-preview-pane"></div><br/>
+                                <span class="separator"></span>
+								<a href="../index.html" target="_blank">View Documentation</a><br>
+								<label for="button-border-radius">Border Radius (All):</label>
+								<input type="number" min="1" value="20" name="button-border-radius" class="parent" id="button-border-radius"><br>
+								<label for="borderRadiusTopLeft">Border Radius (TL):</label>
+								<input type="number" min="1" value="20" name="borderRadiusTopLeft" id="borderRadiusTopLeft" class="child"><br>
+								<label for="borderRadiusTopRight">Border Radius (TR):</label> 
+								<input type="number" min="1" value="20" name="borderRadiusTopRight" id="borderRadiusTopRight" class="child"><br>
+								<label for="borderRadiusBottomRight">Border Radius (BR):</label>
+								<input type="number" min="1" value="20" name="borderRadiusBottomRight" id="borderRadiusBottomRight" class="child"><br>
+								<label for="borderRadiusBottomLeft">Border Radius (BL):</label>
+								<input type="number" min="1" value="20" name="borderRadiusBottomLeft" id="borderRadiusBottomLeft" class="child"><br>
+								<label for="transitionTime">Transition Time(ms):</label>
+								<input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+								<label for="className">Class Name:</label>
+								<input type="text" name="className" id="className"><br>
+								<label for="borderColor">Border Color:</label>
+								<input type="text" name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+								<label for="colorOne">Color One:</label>
+								<input type="text" name="colorOne" id="colorOne" value="e8e8e8" class="color {caps: false} reverse-field"><br>
+								<label for="colorTwo">Color Two:</label>
+								<input type="text" name="colorTwo" id="colorTwo" value="d3d4d6" class="color {caps: false} reverse-field"><br>
+								<input type="button" value="Reverse Colors" name="reverse-colors" id="reverse-colors" class="reverse-trigger"><br>
+								<label for="fontColor">Font Color:</label>
+								<input type="text" name="fontColor" id="fontColor" value="000000" class="color {caps: false}"><br>
+								<label for="linkUrl">Link:</label>
+								<input type="text" name="linkUrl" id="linkUrl"><br>
+								<label>Text Shadow Color:</label><br>
+								<input type="radio" name="textShadowColorSelector" value="1" id="rb" checked="checked">
+                <label for="rb">Light</label> 
+                <input type="radio" name="textShadowColorSelector" id="cb" value="2">
+                <label for="cb">Dark</label><br>
+								<input type="submit" value="Generate">
+							</form>
+							<div class="code-output">
+								<h3>
+										Copy the following into files
+								</h3>
+								<pre><code id="button-output-panel-css"></code></pre>
+								<pre><code id="button-output-panel-html"></code></pre>
+							</div>
+					</section>
+					<!-- Start of custom form section -->
+					<section class="tab" id="customForm">
+	          <div id="form-tabs">
+		          <ul>
+		          	<li><a href="#fileInput">File Input</a></li>
+		            <li><a href="#numberInput">Number</a></li>
+		            <li><a href="#selectInput">Select</a></li>
+		            <li><a href="#submitInput">Submit</a></li>
+		            <li><a href="#buttonInput">Button</a></li>
+		            <li><a href="#resetInput">Reset</a></li>
+		            <li><a href="#textInput">Text</a></li>
+		            <li><a href="#colorInput">Color</a></li>
+		            <li><a href="#searchInput">Search</a></li>
+		            <li><a href="#checkboxInput">Checkbox</a></li>
+		            <li><a href="#radioInput">Radio</a></li>
+		          </ul>
+		          <!-- Start of file input -->
+		          <section class="tab" id="fileInput">
+								<form name="form-file-generator" id="form-file-generator" data-element-type="form-file">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="form-file-preview-pane">
+											<input type="file" name="file" id="cf" />
+											<label for="cf">Browse...</label>
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="form-file-reverse-colors" id="form-file-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="hoverShadowColor">Hover Shadow Color:</label> <input name="hoverShadowColor" id="hoverShadowColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="form-file-output-panel-css"></code></pre>
+										<pre><code id="form-file-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of number input -->
+							<section class="tab" id="numberInput">
+								<form name="number-generator" id="number-generator" data-element-type="number">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="number-preview-pane">
+											
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="ffffff" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="number-reverse-colors" id="number-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="hoverShadowColor">Hover Shadow Color:</label> <input name="hoverShadowColor" id="hoverShadowColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your code files
+										</h3>
+										<pre><code id="number-output-panel-css"></code></pre>
+										<pre><code id="number-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of select input -->
+							<section class="tab" id="selectInput">
+								<form name="select-generator" id="select-generator" data-element-type="select">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="select-preview-pane"></div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="borderRadiusColor">Border Radius Color:</label> <input value="000000" class="color {caps: false}" name="borderRadiusColor" id="borderRadiusColor"><br>
+									<label for="optionBorderColor">Option Border Color:</label> <input value="ffffff" class="color {caps: false}" name="optionBorderColor" id="optionBorderColor"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="form-file-reverse-colors" id="form-file-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="focusColor">Focus Color:</label> <input name="focusColor" id="focusColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="select-output-panel-css"></code></pre>
+										<pre><code id="select-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of Submit Button -->
+							<section class="tab" id="submitInput">
+								<form name="submit-generator" id="submit-generator" data-element-type="submit">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="submit-preview-pane"></div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="submit-reverse-colors" id="submit-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="hoverShadowColor">Hover Shadow Color:</label> <input name="hoverShadowColor" id="hoverShadowColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="submit-output-panel-css"></code></pre>
+										<pre><code id="submit-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of Form Button -->
+							<section class="tab" id="buttonInput">
+								<form name="form-button-generator" id="form-button-generator" data-element-type="form-button">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="form-button-preview-pane">
+											<input type="file" name="file" id="cf" />
+											<label for="cf">Browse...</label>
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="form-button-reverse-colors" id="form-button-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="hoverShadowColor">Hover Shadow Color:</label> <input name="hoverShadowColor" id="hoverShadowColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="form-button-output-panel-css"></code></pre>
+										<pre><code id="form-button-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of Reset Button -->
+							<section class="tab" id="resetInput">
+								<form name="reset-generator" id="reset-generator" data-element-type="reset">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="reset-preview-pane">
+											<input type="file" name="file" id="cf" />
+											<label for="cf">Browse...</label>
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="reset-reverse-colors" id="reset-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="hoverShadowColor">Hover Shadow Color:</label> <input name="hoverShadowColor" id="hoverShadowColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="reset-output-panel-css"></code></pre>
+										<pre><code id="reset-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of Text input -->
+							<section class="tab" id="textInput">
+								<form name="text-generator" id="text-generator" data-element-type="text">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="text-preview-pane">
+											<input type="file" name="file" id="cf" />
+											<label for="cf">Browse...</label>
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="text-reverse-colors" id="text-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="focusColor">Focus Color:</label> <input name="focusColor" id="focusColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="text-output-panel-css"></code></pre>
+										<pre><code id="text-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of Color Input -->
+							<section class="tab" id="colorInput">
+								<form name="color-generator" id="color-generator" data-element-type="color">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="color-preview-pane">
+											<input type="file" name="file" id="cf" />
+											<label for="cf">Browse...</label>
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="color-reverse-colors" id="color-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="hoverShadowColor">Hover Shadow Color:</label> <input name="hoverShadowColor" id="hoverShadowColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="color-output-panel-css"></code></pre>
+										<pre><code id="color-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of Search Input -->
+							<section class="tab" id="searchInput">
+								<form name="search-generator" id="search-generator" data-element-type="search">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="search-preview-pane">
+											<input type="file" name="file" id="cf" />
+											<label for="cf">Browse...</label>
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="search-reverse-colors" id="search-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="focusColor">Focus Color:</label> <input name="focusColor" id="focusColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="search-output-panel-css"></code></pre>
+										<pre><code id="search-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of Checkbox Input -->
+							<section class="tab" id="checkboxInput">
+								<form name="checkbox-generator" id="checkbox-generator" data-element-type="checkbox">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="checkbox-preview-pane">
+											<input type="file" name="file" id="cf" />
+											<label for="cf">Browse...</label>
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="checkedBorderColor">Border Color:</label>
+									<input name="checkedBorderColor" id="checkedBorderColor" value="333333" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="checkbox-reverse-colors" id="checkbox-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="checkedShadowcolor">Checked Shadow Color:</label> <input name="checkedShadowcolor" id="checkedShadowcolor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="checkbox-output-panel-css"></code></pre>
+										<pre><code id="checkbox-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Start of Radio Button Input -->
+							<section class="tab" id="radioInput">
+								<form name="radio-generator" id="radio-generator" data-element-type="radio">
+									<h3>
+											Preview
+									</h3>
+									<div class="preview-pane" id="radio-preview-pane">
+											<input type="file" name="file" id="cf" />
+											<label for="cf">Browse...</label>
+									</div>
+									<span class="separator"></span>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="eaeaea" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="f7f7f7" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="radio-reverse-colors" id="radio-reverse-colors" class="reverse-trigger"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="checkedShadowColor">Checked Shadow Color:</label> <input name="checkedShadowColor" id="checkedShadowColor" value="00a9ff" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+										<h3>
+												Copy the following into your css file
+										</h3>
+										<pre><code id="radio-output-panel-css"></code></pre>
+										<pre><code id="radio-output-panel-html"></code></pre>
+								</div>
+							</section>
+						</div>
+					</section><!--end custom-form-->
+					<section class="tab" id="customFigures">
+						<div id="figure-tabs">
+	            <ul>
+	            	<li><a href="#figThumbLightBox">Figure & Figcaption (Thumb w/ Lightbox)</a></li>
+	              <li><a href="#figCaption">Figure & Figcaption</a></li>
+	              <li><a href="#imgPreview">Image Preview</a></li>
+	            </ul>
+	            <!-- Start Figure & Figcaption ( Thumb w/ Lightbox ) -->
+							<section class="tab" id="figThumbLightBox">
+								<form name="thumb-generator" id="thumb-generator" data-element-type="thumb">
+									<h3>
+											Preview
+									</h3>
+									
+									<div id="thumb-preview-pane"></div>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="f9f9f9" class="color {caps: false}"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+									<h3>
+											Copy the following into your css file
+									</h3>
+									<pre><code id="thumb-output-panel-css"></code></pre>
+									<pre><code id="thumb-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<!-- Figure & Fig Caption -->
+							<section class="tab" id="figCaption">
+								<form name="figure-generator" id="figure-generator" data-element-type="figure">
+									<h3>
+											Preview
+									</h3>
+									
+									<div id="figure-preview-pane"></div>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="ffffff" class="color {caps: false}"><br>
+									<label for="colorOne">Color One:</label>
+									<input name="colorOne" id="colorOne" value="e7e7e7" class="color {caps: false} reverse-field"><br>
+									<label for="colorTwo">Color Two:</label> 
+									<input name="colorTwo" id="colorTwo" value="777777" class="color {caps: false} reverse-field"><br>
+									<input type="button" value="Reverse Colors" name="radio-reverse-colors" id="radio-reverse-colors" class="reverse-trigger"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+									<h3>
+											Copy the following into your css file
+									</h3>
+									<pre><code id="figure-output-panel-css"></code></pre>
+									<pre><code id="figure-output-panel-html"></code></pre>
+								</div>
+							</section>
+							<section class="tab" id="imgPreview">
+								<form name="img-preview-generator" id="img-preview-generator" data-element-type="img-preview">
+									<h3>
+											Preview
+									</h3>
+									
+									<div id="img-preview-preview-pane"></div>
+									<a href="../index.html">View Documentation</a><br>
+									<label for="borderColor">Border Color:</label>
+									<input name="borderColor" id="borderColor" value="ffffff" class="color {caps: false}"><br>
+									<label for="shadowColor">Shadow Color:</label> <input name="shadowColor" id="shadowColor" value="333333" class="color {caps: false}"><br>
+									<label for="transitionTime">Transition Time(ms):</label> <input type="number" min="1" value="40" name="transitionTime" id="transitionTime"><br>
+									<input type="submit" value="Generate">
+								</form>
+								<div class="code-output">
+									<h3>
+											Copy the following into your css file
+									</h3>
+									<pre><code id="img-preview-output-panel-css"></code></pre>
+									<pre><code id="img-preview-output-panel-html"></code></pre>
+								</div>
+							</section>
+						</div>
+					</section><!--end custom-figures-->
+				</div>
+		</body>
+</html>

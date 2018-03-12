@@ -1,0 +1,69 @@
+<h5>HTML Example</h5>
+<xmp>
+<form class="checkradio">
+    <input type="radio" name="radio" id="rb" />
+    <label for="rb">Radio</label>
+</form>
+</xmp>
+
+<h5>CSS Example</h5>
+<xmp>
+/*** Radio ***/
+input[type="radio"]{
+	display: none;
+}
+
+input[type="radio"] + label{
+	width:15px;
+    height:15px;
+	display: inline-block;
+	vertical-align: middle;
+	text-indent: 27px;
+	line-height: 1.1em;
+	background: #eaeaea; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eaeaea 0%, #f7f7f7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaeaea), color-stop(100%,#f7f7f7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #eaeaea 0%,#f7f7f7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #FFFFFF;
+	-moz-box-shadow: 0 0 1px 0 #333333;
+	-webkit-box-shadow: 0 0 1px 0 #333333;
+	box-shadow: 0 0 1px 0 #333333;
+	cursor: pointer;
+	/* Chrome 10+,Safari */
+	-webkit-transition: all 240ms ease-in-out;
+	/* Firefox 4+ */
+	-moz-transition: all 240ms ease-in-out;
+	/* IE 9,10 */
+	-ms-transition: all 240ms ease-in-out;
+	/* Opera */
+	-o-transition: all 240ms ease-in-out;
+	/* W3C */
+	transition: all 240ms ease-in-out;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+}
+
+input[type="radio"]:checked + label{
+	-moz-box-shadow: 0 0 4px 0px #00a9ff;
+	-webkit-box-shadow: 0 0 4px 0px #00a9ff;
+	box-shadow: 0 0 4px 0px #00a9ff;
+}
+
+input[type="radio"]:checked + label:before{
+	content:"\00a0";
+	width: 11px;
+	height: 11px;
+	background-color: #333333;
+	position: absolute;
+	margin-left: -25px;
+	margin-top:2px;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+}
+</xmp>

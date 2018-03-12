@@ -1,0 +1,44 @@
+<h5>HTML Example</h5>
+<xmp>
+<form>
+	<input type="reset" value="Reset Form" />
+</form>
+</xmp>
+
+<h5>CSS Example</h5>
+<xmp>
+/*** Reset Button ***/
+input[type="reset"]{
+	padding: 5px 20px;
+	background: #eaeaea; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eaeaea 0%, #f7f7f7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaeaea), color-stop(100%,#f7f7f7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #eaeaea 0%,#f7f7f7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #FFFFFF;
+	-moz-box-shadow: 0 0 1px 0 #333333;
+	-webkit-box-shadow: 0 0 1px 0 #333333;
+	box-shadow: 0 0 1px 0 #333333;
+	cursor: pointer;
+	/* Chrome 10+,Safari */
+	-webkit-transition: all 240ms ease-in-out;
+	/* Firefox 4+ */
+	-moz-transition: all 240ms ease-in-out;
+	/* IE 9,10 */
+	-ms-transition: all 240ms ease-in-out;
+	/* Opera */
+	-o-transition: all 240ms ease-in-out;
+	/* W3C */
+	transition: all 240ms ease-in-out;
+}
+
+input[type="reset"]:hover, input[type="reset"]:active, input[type="reset"]:focus{
+	-moz-box-shadow: 0 0 4px 0px #00a9ff;
+	-webkit-box-shadow: 0 0 4px 0px #00a9ff;
+	box-shadow: 0 0 4px 0px #00a9ff;
+	outline: none;
+}
+</xmp>

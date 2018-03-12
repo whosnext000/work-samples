@@ -1,0 +1,838 @@
+﻿@model AircraftForSale.MVCAfsDefault
+
+@{
+    Layout = "~/Views/Shared/_LayoutAfs.cshtml";
+}
+
+<form id="frmSearchAircraft" action="" method="post">
+    <div>
+        <input type="hidden" id="lowPrice" name="lowPrice" />
+        <input type="hidden" id="highPrice" name="highPrice" />
+        <input type="hidden" id="lowYear" name="lowYear" />
+        <input type="hidden" id="highYear" name="highYear" />
+        <input type="hidden" id="lowTT" name="lowTT" />
+        <input type="hidden" id="highTT" name="highTT" />
+        <input type="hidden" id="Locations" name="Locations" />
+        <input type="hidden" id="selclass" name="selclass" />
+    </div>
+</form>
+
+<form id="frmListingDetail" action="" method="get">
+    <input type="hidden" id="txtviewId" name="AdId" />
+</form>
+
+@*<link rel="stylesheet" href="~/content/default.css">*@
+@Styles.Render("~/content/AFSDefault")
+
+<div class="default-container afsDefault">
+    <div class="buffer"></div>
+    <div class="left-column-container">
+        <div class="HeaderAndSearch">
+            <h1>PLANES AND AIRCRAFT FOR SALE</h1>
+            <div class="text-search">
+                <div class="ts-circle">
+                    <img src="~/images/AFSImages/Icons/AFSPageIcons/magglass.fw.png" class="magglass"/>
+                </div>
+                <form id="frmpostmethod" action="/aircraft-for-sale/SearchResults" method="post">
+                    <input type="text" class="ts-box" name="txtpostvalue" id="quicksearch" placeholder="QUICK SEARCH..." />
+                </form>
+            </div>
+        </div>
+        <div class="ACclassificationlist">
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Amphibian" onclick="clearGanBookmark();"><img src="@Model.LastAmphibUrl" width="120" alt="Amphibian Planes for Sale" class="acimg ac1"/></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Amphibian" onclick="clearGanBookmark();"><h2>Amphibian Aircraft</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Commercial" onclick="clearGanBookmark();"><img src="@Model.LastCommUrl" width="120" alt="Commercial Aircraft for Sale" class="acimg ac2" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Commercial" onclick="clearGanBookmark();"><h2>Commercial Aircraft</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Experimental-Kit" onclick="clearGanBookmark();"><img src="@Model.LastExpKitUrl" width="120" alt="Experimental and Kit Aircraft for Sale" class="acimg ac3" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Experimental-Kit" onclick="clearGanBookmark();"><h2>Experimental Aircraft</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Helicopters" onclick="clearGanBookmark();"><img src="@Model.LastHeliUrl" width="120" alt="Helicopters for Sale" class="acimg ac4" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name"><a href="/aircraft-for-sale/Helicopters" onclick="clearGanBookmark();"><h2>Helicopter</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Private-Jet" onclick="clearGanBookmark();"><img src="@Model.LastPrivJetUrl" width="120" alt="Private jets for Sale" class="acimg ac5" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name"><a href="/aircraft-for-sale/Private-Jet" onclick="clearGanBookmark();"><h2>Private Jets</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Single-Engine-Turbine" onclick="clearGanBookmark();"><img src="@Model.LastSETurbinUrl" width="120" alt="Single Engine TurboProps for Sale" class="acimg ac6" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Single-Engine-Turbine" onclick="clearGanBookmark();"><h2>Single Engine Turbines</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Single-Engine-Piston" onclick="clearGanBookmark();"><img src="@Model.LastSEPistonUrl" width="120" alt="Piston Airplanes for Sale" class="acimg ac7" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Single-Engine-Piston" onclick="clearGanBookmark();"><h2>Single Engine Pistons</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Twin-Engine-Piston" onclick="clearGanBookmark();"><img src="@Model.LastTwinPistonUrl" width="120" alt="Twin Engine Piston Aircraft for Sale" class="acimg ac8" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Twin-Engine-Piston" onclick="clearGanBookmark();"><h2>Twin Engine Pistons</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Twin-Engine-Turbine" onclick="clearGanBookmark();"><img src="@Model.LastTwinTurbinUrl" width="120" alt="TurboProp Aircraft for Sale" class="acimg ac9" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Twin-Engine-Turbine" onclick="clearGanBookmark();"><h2>Twin Turbo Props</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Vintage" onclick="clearGanBookmark();"><img src="@Model.LastVintageUrl" width="120" alt="Vintage Planes for Sale" class="acimg ac10" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Vintage" onclick="clearGanBookmark();"><h2>Vintage Aircraft</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Warbird" onclick="clearGanBookmark();"><img src="@Model.LastWarbirdUrl" width="120" alt="Warbird Airplanes for Sale" class="acimg ac11" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name"><a href="/aircraft-for-sale/Warbird" onclick="clearGanBookmark();"><h2>Warbirds</h2></a></div>
+                </div>
+            </div>
+            <div class="AC-box">
+                <div class="AC-image"><a href="/aircraft-for-sale/Light-Sport" onclick="clearGanBookmark();"><img src="@Model.LastSportUrl" width="120" alt="Light Sport Aircraft for Sale" class="acimg ac12" /></a></div>
+                <div class="AC-right">
+                    <div class="AC-name-2"><a href="/aircraft-for-sale/Light-Sport" onclick="clearGanBookmark();"><h2>Light Sport Aircraft</h2></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="center-column-container">
+        <div class="topDivMobile"></div>
+	<div id="topdiv1">
+		<div class="acc-title">THE FEATURED AIRCRAFT SHOWCASE</div>
+		<div class="acc-overall" id="acc-overall">
+        <div class="TextContent2">
+            <article class="accordion">
+                <div class="class-holder" id="b-cl1">
+                    <button class="classification" id="cl1" onclick="select_classification(1)">Amphibian Aircraft</button>
+                </div>
+                <div id="cl1-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl2">
+                    <button class="classification" id="cl2" onclick="select_classification(2)">Commercial Aircraft</button>
+                </div>
+                <div id="cl2-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl3">
+                    <button class="classification" id="cl3" onclick="select_classification(3)">Experimental Aircraft</button>
+                </div>
+                <div id="cl3-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl4">
+                    <button class="classification" id="cl4" onclick="select_classification(4)">Helicopter</button>
+                </div>
+                <div id="cl4-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl5">
+                    <button class="classification" id="cl5" onclick="select_classification(5)">Private Jets</button>
+                </div>
+                <div id="cl5-content" class="cl-content" style="display:none;">
+                </div>
+
+                <div class="class-holder" id="b-cl6">
+                    <button class="classification" id="cl6" onclick="select_classification(6)">Single Engine Turbines</button>
+                </div>
+                <div id="cl6-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl7">
+                    <button class="classification" id="cl7" onclick="select_classification(7)">Single Engine Pistons</button>
+                </div>
+                <div id="cl7-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl8">
+                    <button class="classification" id="cl8" onclick="select_classification(8)">Twin Engine Pistons</button>
+                </div>
+                <div id="cl8-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl9">
+                    <button class="classification" id="cl9" onclick="select_classification(9)">Twin Turbo Props</button>
+                </div>
+                <div id="cl9-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl10">
+                    <button class="classification" id="cl10" onclick="select_classification(10)">Vintage Aircraft</button>
+                </div>
+                <div id="cl10-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl11">
+                    <button class="classification" id="cl11" onclick="select_classification(11)">Warbirds</button>
+                </div>
+                <div id="cl11-content" class="cl-content" style="display:none;"></div>
+
+                <div class="class-holder" id="b-cl12">
+                    <button class="classification" id="cl12" onclick="select_classification(12)">Light Sport Aircraft</button>
+                </div>
+                <div id="cl12-content" class="cl-content" style="display:none;"></div>
+
+				</article>
+			</div>
+		</div>
+	</div>
+	
+        <div class="bottomDiv">
+            <div class="search-sign">
+                <div class="search-text"><img src="~/images/AFSImages/Icons/AFSPageIcons/Icon_Trending.png" alt="Airplanes for sale" width="50" /> SEARCH AIRCRAFT FOR SALE</div>
+                <div class="sign-up">
+                    <div class="sign-up1">Sign up for latest listings</div>
+                    <div class="sign-up2">
+                        <div class="sign-up3"><input type="email" id="sign-up-text" placeholder="your-email@here.com" onkeypress='javascript:processOnEnter("registerEmail(\"sign-up-text\")")' /></div>
+                        <input type="button" role="button" id="sign-up-button" value="Submit" onclick="registerEmail('sign-up-text')" />
+                    </div>
+                </div>
+            </div>
+            <div class="search-para">
+                The Marketplace for Serious Buyers and Sellers of Aircraft around the Globe. Since 1995 we have listed thousands of airplanes for sale here at Globalair.com. From the iconic Cessna 172 to the super long range Gulfstream G650ER’s you will find the most up to date airplanes for sale on the Internet. Helicopters and Aircraft for sale are sold by private owners and dealers around the world.
+            </div>
+            <div class="search-block">
+                <div class="search-block-left">
+                    <div class="search-dropdown">
+                        <div class="search-dropdown-text">Classification</div>
+                        <div class="ddl-box" onclick="openDDL(1)" id="sc-search">Select</div>
+                        <div id="selectclassification" class="search-dropdown-ddl" style="display:none;z-index:10;"></div>
+                    </div>
+                    <div class="search-dropdown">
+                        <div class="search-dropdown-text">Manufacturer</div>
+                        <div class="ddl-box" onclick="openDDL(2)" id="sm-search"></div>
+                        <div id="selectmanufacturer" class="search-dropdown-ddl" style="display:none;z-index:9;"></div>
+                    </div>
+                    <div class="search-dropdown">
+                        <div class="search-dropdown-text">Make/Model</div>
+                        <div class="ddl-box" onclick="openDDL(3)" id="so-search"></div>
+                        <div id="selectmodel" class="search-dropdown-ddl" style="display:none;z-index:8;"></div>
+                    </div>
+                    <div class="search-dropdown">
+                        <div class="search-button">
+                            <input type="button" id="search-button" value="SEARCH" />
+                            <input type="button" id="clear-button" value="CLEAR" />
+                        </div>
+                        <div id="class-required" style="display:none;"></div>
+                    </div>
+                </div>
+                <div class="search-block-right">
+                    <div class="search-dropdown hide-when-mobile">
+                        <div class="search-input-text">
+                            Price
+                        </div>
+                        <div class="search-input">
+                            <input type="text" id="price-from" />
+                            to
+                            <input type="text" id="price-to" />
+                        </div>
+                    </div>
+                    <div class="search-dropdown hide-when-mobile">
+                        <div class="search-input-text">
+                            Year
+                        </div>
+                        <div class="search-input">
+                            <input type="text" id="year-from" />
+                            to
+                            <input type="text" id="year-to" />
+                        </div>
+                    </div>
+                    <div class="search-dropdown hide-when-mobile">
+                        <div class="search-input-text">
+                            Total Time
+                        </div>
+                        <div class="search-input">
+                            <input type="text" id="tt-from" />
+                            to
+                            <input type="text" id="tt-to" />
+                        </div>
+                    </div>
+                    <div class="search-dropdown hide-when-mobile">
+                        <div class="search-dropdown-text">Location</div>
+                        <div class="ddl-box" onclick="openDDL(4)" id="loc-search">Select</div>
+                        <div id="selectlocation" class="search-dropdown-ddl" style="display:none;z-index:7;"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="bottomdiv"></div>
+            <div class="trending-block">
+                <div class="trending-header">
+                    <div class="search-text2">
+                        <img src="~/images/AFSImages/Icons/AFSPageIcons/Icon_Trending.png" alt="Trending Airplanes for sale Icon" />
+                        TRENDING AIRPLANE FOR SALE LISTINGS
+                    </div>
+                </div>
+                <div class="four-image-holder">
+                    <div class="image-box">
+                        <div class="listing-images" id="trending-img-1">
+                            <div class="listing-top"><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_flame.png" width="20" /><span id="trending-views-1"></span></div>
+                            <div class="listing-bottom"><p id="trending-desc-1"></p></div>
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <div class="listing-images" id="trending-img-2">
+                            <div class="listing-top"><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_flame.png" width="20" /><span id="trending-views-2"></span></div>
+                            <div class="listing-bottom"><p id="trending-desc-2"></p></div>
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <div class="listing-images" id="trending-img-3">
+                            <div class="listing-top"><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_flame.png" width="20" /><span id="trending-views-3"></span></div>
+                            <div class="listing-bottom"><p id="trending-desc-3"></p></div>
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <div class="listing-images" id="trending-img-4">
+                            <div class="listing-top"><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_flame.png" width="20" /><span id="trending-views-4"></span></div>
+                            <div class="listing-bottom"><p id="trending-desc-4"></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listing-block">
+                <div class="trending-header">
+                    <img src="~/images/AFSImages/Icons/AFSPageIcons/Icon_LatestAircraft.png" alt="Latest Aircraft for Sale Icon" class="pop-img" />
+                    <div class="search-text2">
+                        LATEST AIRCRAFT FOR SALE LISTINGS
+                    </div>
+                </div>
+                <div class="four-image-holder">
+                    <div class="image-box">
+                        <div class="listing-images" id="listing-img-1">
+                            <div class="listing-top"><p id="listing-views-1"></p></div>
+                            <div class="listing-bottom"><p id="listing-desc-1"></p></div>
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <div class="listing-images" id="listing-img-2">
+                            <div class="listing-top"><p id="listing-views-2"></p></div>
+                            <div class="listing-bottom"><p id="listing-desc-2"></p></div>
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <div class="listing-images" id="listing-img-3">
+                            <div class="listing-top"><p id="listing-views-3"></p></div>
+                            <div class="listing-bottom"><p id="listing-desc-3"></p></div>
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <div class="listing-images" id="listing-img-4">
+                            <div class="listing-top"><p id="listing-views-4"></p></div>
+                            <div class="listing-bottom"><p id="listing-desc-4"></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popular-block">
+                <div class="trending-header">
+                    <div class="search-text-p">POPULAR AIRCRAFT SEARCHES</div>
+                </div>
+                <div class="popular-container">
+                    <div class="popular-cell">
+                        <ul id="mpsLst1" class="popular-links">@Html.Raw(ViewBag.PopularLst1)</ul>
+                    </div>
+                    <div class="popular-cell">
+                        <ul id="mpsLst2" class="popular-links">@Html.Raw(ViewBag.PopularLst2)</ul>
+                    </div>
+                    <div class="popular-cell">
+                        <ul id="mpsLst3" class="popular-links">@Html.Raw(ViewBag.PopularLst3)</ul>
+                    </div>
+                    <div class="popular-cell">
+                        <ul id="mpsLst4" class="popular-links">@Html.Raw(ViewBag.PopularLst4)</ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+                </div>
+    <div class="right-column-container">
+        <div class="quick-links-box">
+            <div class="quick-links-header"><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_quicklinksglobe.png" /> QUICK LINKS</div>
+            <div class="quick-links-list">
+                <ul>
+                    <li><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_Quicklinks.png" /><a href="/myaircraft/rates">Sell Your Aircraft</a></li>
+                    <li><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_Quicklinks.png" /><a href="/aircraft-for-sale/Sellers">By Seller</a></li>
+                    <li><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_Quicklinks.png" /><a href="/aircraft-for-sale/aircraft-by-location">By Location</a></li>
+                    <li><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_Quicklinks.png" /><a href="/ABuyer/Default">A.Buyer Researcher</a></li>
+                    <li><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_Quicklinks.png" /><a href="/aircraft-for-sale/aircraft-lease">Lease Opportunities</a></li>
+                    <li><img src="~/images/AFSImages/Icons/RunOfSiteIcons/icon_Quicklinks.png" /><a href="/aircraft-for-sale/WantedClassification">Aircraft Wanted</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-column-ad" id="sq-ad-1"></div>
+        <div class="right-column-ad" id="sq-ad-2"></div>
+        <div class="right-column-ad" id="sq-ad-3"></div>
+        <div class="right-column-ad" id="sq-ad-4"></div>
+        <div class="right-column-ad" id="sq-ad-5"></div>
+    </div>
+    <div class="buffer"></div>  
+</div>
+
+@section scripts {
+
+<script type="text/javascript">
+    var vtoken = '';
+    var last, imgcnt = null;
+    var imgtimer = null;
+    var currentSlide = 0;
+    var loaded = 0;
+    var maxSlidesInSlideShow = 4;
+    var ismobile = @ViewBag.IsMobile || 0;
+    $(function () {
+        setafsDefMod();
+        processtblMetaInput(afsDefMod);
+        getCompanies();
+        getSearchLocations();
+        /* end build accordion show*/
+        var c = readCookie("clsInterest");
+        c = parseInt((c == undefined) ? 5 : c);
+        if (isNaN(c)) {
+            c = 5;
+        }
+        select_classification(c);
+
+        for (j = 1; j <= 5; j++) {
+            var ele = 'sq-ad-' + j;
+            insertBanManAd(ele, 'squareZones', j);
+        }
+        
+        //if ((ismobile == 1) || (!Modernizr.mq('(min-width: 651px)'))) {
+        //    $("#bottomdiv").html($("#topdiv1").html());
+        //    $("#topdiv1").empty();
+        //    $("#topdiv1").hide();
+        //    $(".hide-when-mobile").hide();
+        //}
+
+        renderJustPosted(afsDefMod.JustPostedLst);
+
+        $("#search-button").click(function (e) {
+            e.preventDefault();
+            btnSrchCMMD_Click();
+        });
+        $("#clear-button").click(function (e) {
+            e.preventDefault();
+            btnSrchClear_Click();
+        });
+        $("#chkUSA").change(function (e) {
+            setUSASelection(e);
+        })
+        $("#sc-search").css('height', 'auto');
+        $('#quicksearch').keyup(function (e) {
+            var length = $('#quicksearch').val().length;
+            if (e.keyCode == 13) {
+                if (length > 2) {
+                    $("#frmpostmethod").prop("action");
+                    $("#frmpostmethod").submit();
+                }
+                else {
+                    alert('Quicksearch requires at least 3 characters.');
+                }
+            }
+
+        })
+        $(".ts-circle").click(function (e) {
+            var length = $('#quicksearch').val().length;
+            e.preventDefault();
+            if (length > 2) {
+                $("#frmpostmethod").prop("action");
+                $("#frmpostmethod").submit();
+            }
+            else {
+                alert('Quicksearch requires at least 3 characters.');
+            }
+        })
+        setTimeout(function () {
+            var count = 1;
+            $(".acimg").each(function () {
+                var h = this.height;
+                if (h > 0) {
+                    var n = (115 - h) / 2;
+                    var x = parseInt(n);
+                    $('.ac' + count).css('padding-top', x + 'px');
+                }
+                count++;
+            });
+        }, 100);
+        setTimeout(function () {
+            var count = 1;
+            $(".acimg").each(function () {
+                var h = this.height;
+                if (h > 0) {
+                    var n = (115 - h) / 2;
+                    var x = parseInt(n);
+                    $('.ac' + count).css('padding-top', x + 'px');
+                }
+                count++;
+            });
+        }, 1500);
+        setTimeout('getAdsWithMostInterest("' + afsDefMod.MVStartCls + '")', 100);
+        tempdata = '';
+        currentSlide = Math.floor((Math.random() * 4));
+        setTimeout(function () {
+            startSlideShowAnimation2(currentSlide);
+        }, 500);
+    });
+
+    $(window).resize(function () {
+        if (last != undefined) {
+            $("#cl" + last + "-content").css({ "display": "none" });
+            $("#cl" + last + "-content").empty();
+            $(".slide-details").empty();
+
+            var current = last;
+            if (current != 1) {
+                last = 1;
+            }
+            else {
+                last = 2;
+            }
+            select_classification(current);
+        }
+    });
+
+    function select_classification(id) {
+        buildSlideShow2(id);
+
+        if ($(window).width() > 843) {
+            if ($(window).width() > 1570) {
+                if (last != undefined)
+                    $("#cl" + last + "-content").animate({ width: "0px" }, "slow");
+                $("#cl" + id + "-content").css("display", "block").animate({ width: "550px" }, "slow");
+                $("#b-cl" + id).css("display", "none");
+            }
+            else {
+                if (last != undefined)
+                    $("#cl" + last + "-content").animate({ width: "0px" }, "slow");
+                $("#cl" + id + "-content").css("display", "block").animate({ width: "350px" }, "slow");
+                $("#b-cl" + id).css("display", "none");
+            }
+        }
+        else {
+            if ($(window).width() > 650) {
+                if (last != undefined)
+                    $("#cl" + last + "-content").animate({ height: "0px" });
+                $("#cl" + id + "-content").css("display", "block").animate({ height: "420px" }, "slow");
+                $("#b-cl" + id).css("display", "none");
+            }
+            else {
+                if (last != undefined)
+                    $("#cl" + last + "-content").animate({ height: "0px" });
+                $("#cl" + id + "-content").css("display", "block").animate({ height: "330px" }, "slow");
+                $("#b-cl" + id).css("display", "none");
+            }
+        }
+
+        if (last != undefined) {
+            $("#cl" + last + "-content").hide(100);
+            $("#b-cl" + last).css("display", "block");
+            $("#deets" + last).empty();
+            $("#cl" + last + "-content").empty();
+        }
+        last = id;
+    }
+
+    function startSlideShowAnimation2(x) {
+        var go;
+        go = setTimeout(startout, 5500);
+        function startout() {
+            $('#slide' + currentSlide).fadeOut(2000);
+            swap();
+        }
+        function swap() {
+            if ((currentSlide + 1) < maxSlidesInSlideShow) {
+                currentSlide++;
+                $('#slide' + currentSlide).fadeIn(3000);
+            }
+            else {
+                currentSlide = 0;
+                $('#slide' + currentSlide).fadeIn(3000);
+            }
+            setTimeout(startout, 9000);
+        }
+    }
+
+    function buildSlideShow2(clsid) {
+        createCookie("clsInterest", clsid, 30);
+        $(".cl-content").empty();
+        var x = 0;
+        var r = 0;
+            while (r < afsDefMod.FeaturedACLst.length) {
+                if (afsDefMod.FeaturedACLst[r].ClassificationId == clsid) {
+                    while ((r < afsDefMod.FeaturedACLst.length) && (x < 4) && (afsDefMod.FeaturedACLst[r].ClassificationId == clsid)) {
+                        var slideshow = $('<div/>', { id: 'slide' + x }).addClass('slideshow');
+                        var img_holder = $('<div/>').addClass('img-holder');
+                        var obj = $("<div />", { id: "imgdiv" + imgcnt }).addClass('clsimgdiv').append($("<img />", { id: "img-" + r, src: afsDefMod.FeaturedACLst[r].ImageLoc })
+                            .addClass("slide_styles")
+                            .click(function (e) {
+                                var temp = this.id;
+                                var curr = temp.split('-');
+                                var selitem = afsDefMod.FeaturedACLst[curr[1]]
+                                getListingDetail(selitem.AdId, formatModelDes(selitem.Model, selitem.Designation));
+                                }));
+                        img_holder.append(obj);
+                        $(slideshow).append(img_holder);
+                        imgcnt++;
+
+                        var slidedetails = $("<div />", { id: "deets" + clsid }).addClass("slide_details").css({ position: "relative" });
+                        slidedetails.append($("<div />").append($("<label />", { id: "lblModel" }).addClass("details-title").html(afsDefMod.FeaturedACLst[r].Subject)));
+
+                        var divrow5 = $("<div />").addClass("detail-table");
+                        slidedetails.append(divrow5);
+
+                        var divbtn = $("<div />").addClass("v-deets");
+                        divbtn.append($("<button />", { type: "Button", id : 'btn-' + r })
+                            .click(function (e) {
+                                var temp = this.id;
+                                var curr = temp.split('-');
+                                var selitem = afsDefMod.FeaturedACLst[curr[1]]
+                                getListingDetail(selitem.AdId, formatModelDes(selitem.Model, selitem.Designation));
+                            })
+                       );
+
+                        var comment = $("<div />", { id: "comment" + clsid }).addClass("broker-comment");
+                        comment.append($("<div />").append($("<label />", { id: "lblComment" }).addClass("details-comment").html(afsDefMod.FeaturedACLst[r].BrokerComment)));
+
+                        $(slideshow).append(divbtn);
+                        $(slideshow).append(comment);
+                        $(slideshow).append(slidedetails);
+                        $("#cl" + clsid + "-content").append(slideshow);
+                        r++;
+                        x++;
+                    }
+                }
+                r++
+            }
+            maxSlidesInSlideShow = x;
+            for (i = 0; i < 4; i++) {
+                $('#slide' + i).css('display', 'none');
+            }
+            $('#slide' + currentSlide).css('display', 'block');
+    }
+
+
+
+    function renderJustPosted(arg) {
+        var cnt = Math.min(arg.length, 4);
+        for (var i = 0; i < cnt; i++) {
+            $('#listing-img-' + (i + 1)).append($("<img />", { src: afsDefMod.JustPostedLst[i].ImageLoc })
+                .data("info", { "adid": afsDefMod.JustPostedLst[i].AdId, "model": afsDefMod.JustPostedLst[i].Model, "desig": afsDefMod.JustPostedLst[i].Designation })
+                .addClass("use-cursor")
+                .click(function (e) {
+                    e.preventDefault();
+                    getListingDetail($(e.currentTarget).data("info").adid, formatModelDes($(e.currentTarget).data("info").model, $(e.currentTarget).data("info").desig));
+                }));
+            $('#listing-views-' + (i + 1)).html(afsDefMod.JustPostedLst[i].PlaneTitle);
+            $('#listing-desc-' + (i + 1)).html(afsDefMod.JustPostedLst[i].FrmtPrice + ((afsDefMod.JustPostedLst[i].Currency == "USD") ? "" : " " + afsDefMod.JustPostedLst[i].Currency));
+        }
+    }
+
+    function getAdsWithMostInterest(cls) {
+        var dba = new DbAccess("GetMostViewedAds", "AfsDefault", vtoken);
+        dba.addSprocParam('PeriodEndDt', afsDefMod.ToDaysDt);
+        dba.addSprocParam('DaySpan', afsDefMod.MVDaySpan);
+        dba.addSprocParam('imgSiz', "?w=200&amp;h=140&amp;mode=max");
+        POSTService(webAPIUrl() +"GetDataAsJson", dba.getData(), loadMostViewed, null);
+    }
+
+    function loadMostViewed(d) {
+        afsDefMod.MostViewLst = $.parseJSON(d);
+        for (var i = 0; i < 4; i++) {
+            $('#trending-img-' + (i + 1)).append($("<img />", { src: afsDefMod.MostViewLst[i].ImageLoc })
+               .data("info", { "adid": afsDefMod.MostViewLst[i].AdId, "model": afsDefMod.MostViewLst[i].Model, "desig": afsDefMod.MostViewLst[i].Designation })
+                .addClass("use-cursor")
+                .click(function (e) {
+                    e.preventDefault();
+                    getListingDetail($(e.currentTarget).data("info").adid, formatModelDes($(e.currentTarget).data("info").model, $(e.currentTarget).data("info").desig));
+                }));
+            $('#trending-views-' + (i + 1)).html((afsDefMod.MostViewLst[i].Cnt / afsDefMod.MVDaySpan).toFixed('0') + " VIEWS PER DAY");
+            $('#trending-desc-' + (i + 1)).html(afsDefMod.MostViewLst[i].PlaneTitle);
+        }
+    }
+
+    function getSelectedPopularSrch(addr, id, cid){
+        setQuickSearch(addr);
+    }
+
+    function setQuickSearch(stxt) {
+        var sfilter = "/aircraft-for-sale/" + stxt.replace(/\s/g, "-") + "-Aircraft";
+        $("#frmSearchAircraft").prop("action", sfilter);
+        $("#frmSearchAircraft").submit();
+    }
+
+	
+    function clearGanBookmark(){
+        eraseCookie("GanSrchBookmark");
+		return true;
+    }
+
+    function btnSrchCMMD_Click() {
+        clearGanBookmark();
+       var urlstring = buildURL();
+
+        if (urlstring == 'no') {
+            requireClass();
+        }
+        else {
+            $("#selclass").val($("#sc-search").attr("value"));
+            $("#lowPrice").val($("#price-from").val());
+            $("#highPrice").val($("#price-to").val());
+            $("#lowYear").val($("#year-from").val());
+            $("#highYear").val($("#year-to").val());
+            $("#lowTT").val($("#tt-from").val());
+            $("#highTT").val($("#tt-to").val());
+            var loc = setLocations();
+            $("#Locations").val(loc);
+            $("#frmSearchAircraft").prop("action", urlstring);
+            $("#frmSearchAircraft").submit();
+        }
+    }
+
+    function setLocations() {
+        var intList = "";
+        $(".selected-location").each(function () {
+            if (this.value == 0) {
+                for (var x = 1; x < 52; x++) {
+                    intList += x + ",";
+                }
+            }
+            intList += this.value + ",";
+        });
+        intList = intList.substring(0, intList.length - 1);
+        return intList;
+    }
+
+    function btnSrchClear_Click() {
+        $("#price-from").val('');
+        $("#price-to").val('');
+        $("#year-from").val('');
+        $("#year-to").val('');
+        $("#tt-from").val('');
+        $("#tt-to").val('');
+        $("#selectmanufacturer").empty();
+        $("#selectmodel").empty();
+        $("#sc-search").text('Select');
+        $("#sm-search").text('');
+        $("#so-search").text('');
+        $("#sm-search").css('height', '36px');
+        $("#so-search").css('height', '36px');
+        $("#selectmanufacturer").html('Select Classification');
+        $("#selectmodel").html('Select Classification');
+        $("#selectmanufacturer").css('display', 'none');
+        $("#selectmodel").css('display', 'none');
+        $('#class-required').css('display', 'none');
+        getSearchLocations();
+        $("#loc-search").text('Select');
+    }
+
+    function requireClass() {
+        $('#class-required').text('Please select a classification to search.');
+        $('#class-required').css('display', 'block');
+    }
+
+    function buildURL() {
+        var url = "/aircraft-for-sale/";
+        if ( $("#so-search").html() != "Select" && $("#so-search").html() != "") {
+            var temp = $("#so-search").html();
+            var temp2 = formatModelDes(temp);
+            url += temp2;
+        }
+        else if ($("#sm-search").html() != "Select" && $("#sm-search").html() != "") {
+            var temp = $("#sc-search").html();
+            var tempA = formatModelDes(temp); //temp.replace(/\s/g, '-');
+            var temp2 = $("#sm-search").html();
+            var tempB = formatModelDes(temp2);// temp2.replace(/\s/g, '-');
+            url += tempA + "/" + tempB;
+        }
+        else if ($("#sc-search").html() != "Select") {
+            var temp = $("#sc-search").html();
+            var tempA = formatModelDes(temp, ''); // temp.replace(/\s/g, '-');
+            url += tempA;
+        }
+        else if ($("#sc-search").html() == "Select") {
+            url = "no";
+        }
+        else {
+            url = "no";
+        }
+        return url;
+    }
+
+    function openDDL(id){
+        if(id == 1){
+            if ($('#selectclassification').is(':visible')){
+                $('#selectclassification').css('display', 'none');
+            }
+            else{
+                $('#selectclassification').css('display', 'block');
+            }
+        }
+        if (id == 2) {
+            if ($('#selectmanufacturer').is(':visible')) {
+                $('#selectmanufacturer').css('display', 'none');
+            }
+            else {
+                $('#selectmanufacturer').css('display', 'block');
+            }
+        }
+        if (id == 3) {
+            if ($('#selectmodel').is(':visible')) {
+                $('#selectmodel').css('display', 'none');
+            }
+            else {
+                $('#selectmodel').css('display', 'block');
+            }
+        }
+        if (id == 4) {
+            if ($('#selectlocation').is(':visible')) {
+                $('#selectlocation').css('display', 'none');
+                var numSelected = $(".selected-location").length;
+                if (numSelected > 0) {
+                    $('#loc-search').text('Selected(' + numSelected + ')');
+                }
+                else {
+                    $('#loc-search').text('Select');
+                }
+            }
+            else {
+                $('#selectlocation').css('display', 'block');
+                $('#loc-search').text('Done');
+            }
+        }
+    }
+
+    jQuery(document).ready(function (event) {
+        $(window).on("resize", function (event) {
+            if ($(window).width() <= 1024) {
+                $(".search-sign, .search-para, .search-block, .trending-block, listing-block, .popular-block").appendTo(".topDivMobile");
+            } else if ($(window).width() >= 1024) {
+                $(".search-sign, .search-para, .search-block, .trending-block, listing-block, .popular-block").appendTo(".bottomDiv");
+            }
+        });
+
+        $(window).on("load", function (event) {
+            if ($(window).width() <= 1024) {
+                $(".search-sign, .search-para, .search-block, .trending-block, listing-block, .popular-block").appendTo(".topDivMobile");
+            }
+        });
+
+        if ((ismobile == 1)){
+            $(".search-sign, .search-para, .search-block, .trending-block, listing-block, .popular-block").appendTo(".topDivMobile");
+        }
+    });
+
+</script>
+}
+
+

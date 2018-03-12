@@ -1,0 +1,224 @@
+﻿@model MainSite.Models.MyAircrafts.RatesModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutAfs.cshtml";
+}
+@section header{
+    @Styles.Render("~/Content/Design")
+}
+
+<div class="wrap newPage">
+
+    <div class="contentWrap">
+    @if (ViewBag.LoginAction == "Login")
+    {
+    <!-- Section for the HERO area -->
+        <section class="heroBlock desk" style="background: url('https://resources.globalair.com/images/pricerates-hero.jpg?w=1900') center center no-repeat; background-size: cover;">
+            <div class="overlay"></div>
+            <article>
+                <div itemscope itemtype="http://schema.org/Product">
+                    <header><h1 itemprop="name" class="title">List your aircraft for sale</h1></header>
+                    <h2>Sign Up Now &amp; Get Your First Listing Free!</h2>
+                    <button type="button" onclick="location.href='@Url.Action("FreeListing", "MyAircraft")'" class="button">Get My Free Listing!</button>
+                    <a hidden itemprop="url" href="@Url.Action("FreeListing", "MyAircraft")">Get My Free Listing!</a>
+                    @*onclick="location.href='@Url.Action("LogOn", "MyAircrafts")'"*@
+                </div>
+            </article>
+        </section><!-- /.heroBlock -->
+
+        <section class="heroBlock mobileHero" style="background: url('https://resources.globalair.com/images/pricerates-hero.jpg?w=600') center center no-repeat; background-size: cover;">
+            <div class="mobileView">
+                <article>
+                    <header>
+                        <h1 class="title">List Your Aircraft Rates</h1>
+                    </header>
+                    <button type="button" class="button" value="contact">Contact Us!</button>
+                </article>
+            </div><!-- /.mobiloeView -->
+        </section>
+    }
+    else
+    {
+        <br />
+    }
+
+        <section class="innerContent">
+            <section id="contentBlockOne">
+                <article>
+                    <section class="compareTables mainColor">
+                        <header><h3 class="title">Let GlobalAir.com Manage Your Ads</h3></header>
+                        <p class="subTitle">Fully branded custom ads designed and managed by the GlobalAir.com team.</p>
+                        <section itemscope itemtype="http://schema.org/Product" class="twoCol compareTable">
+                            <p itemprop="name" class="title">Premium<span>Jet | Turbine</span></p>
+                            <p class="price"><span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="vTop">$</span>1.67</p>
+                            <ul>
+                                <li>Ad Posted Within 24 hrs. <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Customized Branded Ads <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Your Company Logo <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Full Aircraft Specifications <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Unlimited Photos in PhotoFlow + Gallery <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Link Your YouTube Video <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Teaser Line <i class="fa fa-check" aria-hidden="true"></i></li>
+                            </ul>
+                            <button name="gaJetnAd" class="button" value="create_jetAd" onclick="location.href='@Url.Action("BuildAdgaPSJ", "MyAircraft")'">Create My Ad</button>
+                            <a hidden itemprop="url" href="@Url.Action("BuildAdgaPSJ", "MyAircraft")">Create My Ad</a>
+                        </section><!-- /.compareTable -->
+                        <section itemscope itemtype="http://schema.org/Product" class="twoCol compareTable">
+                            <p itemprop="name" class="title">Premium<span>Piston</span></p>
+                            <p class="price"><span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="vTop">$</span>1.00</p>
+                            <ul>
+                                <li>Ad Posted Within 24 hrs. <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Customized Branded Ads <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Your Company Logo <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Full Aircraft Specifications <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Unlimited Photos in PhotoFlow + Gallery <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Link Your YouTube Video <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Teaser Line <i class="fa fa-check" aria-hidden="true"></i></li>
+                            </ul>
+                            <button name="gaPistonAd" class="button" value="create_pistonAd" onclick="location.href='@Url.Action("BuildAdgaPiston", "MyAircraft")'">Create My Ad</button>
+                            <a hidden itemprop="url" href="@Url.Action("BuildAdgaPiston", "MyAircraft")">Create My Ad</a>
+                        </section><!-- /.compareTable -->
+                    </section><!-- /.compareTables ./mainColor -->
+                    <!-- ############## -->
+
+                    <section class="compareTables secondaryColor">
+                        <header><h4 class="title">Manage Your Own Ads</h4></header>
+                        <p class="subTitle">Sign up to create and manage your own aircraft ads.</p>
+                        <section itemscope itemtype="http://schema.org/Product" class="fourCol compareTable">
+                            <p itemprop="name" class="title">Premium<span>Jet | Turbine</span></p>
+                            <p class="price"><span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="vTop">$</span>1.33</p>
+                            <ul>
+                                <li>Ad Posted Instantly <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Your Company Logo <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Full Aircraft Specifications <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Unlimited Photos in PhotoFlow + Gallery <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Link Your YouTube Video <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Teaser Line <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Make Changes Anytime <i class="fa fa-check" aria-hidden="true"></i></li>
+                            </ul>
+                            <button name="selfJetAd" class="button" value="create_jetAd" onclick="location.href='@Url.Action("BuildAdselfJetAd", "MyAircraft")'">Create My Ad</button>
+                            <a hidden itemprop="url" href="@Url.Action("BuildAdselfJetAd", "MyAircraft")">Create My Ad</a>
+                        </section><!-- /.compareTable -->
+                        <section itemscope itemtype="http://schema.org/Product" class="fourCol compareTable">
+                            <p itemprop="name" class="title">Premium<span>Piston</span></p>
+                            <p class="price"><span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="vTop">$</span>.67</p>
+                            <ul>
+                                <li>Ad Posted Instantly <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Your Company Logo <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Full Aircraft Specifications <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Unlimited Photos in PhotoFlow + Gallery <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Link Your YouTube Video <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Teaser Line <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Make Changes Anytime <i class="fa fa-check" aria-hidden="true"></i></li>
+                            </ul>
+                            <button name="selfPistonAd" class="button" value="create_pistonAd" onclick="location.href='@Url.Action("BuildAdselfPistonAd", "MyAircraft")'">Create My Ad</button>
+                            <a hidden itemprop="url" href="@Url.Action("BuildAdselfPistonAd", "MyAircraft")">Create My Ad</a>
+                        </section><!-- /.compareTable -->
+                        <section itemscope itemtype="http://schema.org/Product" class="fourCol compareTable">
+                            <p itemprop="name" class="title">Full Spec<span>Jet | Turbine | Piston</span></p>
+                            <p class="price"><span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="vTop">$</span>.50</p>
+                            <ul>
+                                <li>Ad Posted Instantly <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Your Company Logo <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Full Aircraft Specifications <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Unlimited Photos in PhotoFlow + Gallery </li>
+                                <li>Link Your YouTube Video <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Teaser Line <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Make Changes Anytime <i class="fa fa-check" aria-hidden="true"></i></li>
+                            </ul>
+                            <button name="fullSpec" class="button" value="create_jetAd" onclick="location.href='@Url.Action("BuildAdfullSpec", "MyAircraft")'">Create My Ad</button>
+                            <a hidden itemprop="url" href="@Url.Action("BuildAdfullSpec", "MyAircraft")">Create My Ad</a>
+                        </section><!-- /.compareTable -->
+                        <section itemscope itemtype="http://schema.org/Product" class="fourCol compareTable">
+                            <p itemprop="name" class="title">Simple Basic<span>Jet | Turbine | Piston</span></p>
+                            <p class="price"><span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="vTop">$</span>.33</p>
+                            <ul>
+                                <li>Ad Posted Instantly <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Your Company Logo </li>
+                                <li>Full Aircraft Specifications </li>
+                                <li>Unlimited Photos in PhotoFlow + Gallery </li>
+                                <li>Link Your YouTube Video </li>
+                                <li>Teaser Line <i class="fa fa-check" aria-hidden="true"></i></li>
+                                <li>Make Changes Anytime <i class="fa fa-check" aria-hidden="true"></i></li>
+                            </ul>
+                            <button name="simplebasic" class="button" value="create_pistonAd" onclick="location.href='@Url.Action("BuildAdsimplebasic", "MyAircraft")'">Create My Ad</button>
+                            <a hidden itemprop="url" href="@Url.Action("BuildAdsimplebasic", "MyAircraft")">Create My Ad</a>
+                        </section><!-- /.compareTable -->
+                        <sub class="footNote"><i>*30 characters maximum</i></sub>
+                    </section><!-- /.compareTables ./secondaryColor -->
+                </article>
+
+                <!--<div class="mobileView">
+                    <h2 class="subTitle">Contact Us</h2>
+                    <section class="contactInfo">
+                        <p><i class="fa fa-phone" aria-hidden="true"></i><a href="tel: 888-236-4309" title="Call toll free 1-888-236-4309">888-236-4309</a></p>
+                        <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto: webmaster@globalair.com" title="Email us at webmaster@globalAir.com">webmaster@globalair.com</a></p>
+                    </section>
+                    <button type="button" class="smallBtn button" value="mediaKits" onclick="location.href='@Url.Action("MediaKits", "MyAircraft")'">View Our Media Kits</button>
+                </div>-->
+            </section><!-- #/contenBlockOne -->
+
+            <aside class="sidebar adPlacement">
+                <div class="right-column-container">
+                    <!--<div class="quick-links-box">
+                        <div class="quick-links-header title"><i class="fa fa-globe" aria-hidden="true"></i> QUICK LINKS</div>
+                        <div class="quick-links-list">
+                            <ul>
+                                <li><i class="fa fa-plane" aria-hidden="true"></i><a href="/myaircraft/rates">Sell Your Aircraft</a></li>
+                                <li><i class="fa fa-plane" aria-hidden="true"></i><a href="/aircraft-for-sale/Sellers">By Seller</a></li>
+                                <li><i class="fa fa-plane" aria-hidden="true"></i><a href="/aircraft-for-sale/aircraft-by-location">By Location</a></li>
+                                <li><i class="fa fa-plane" aria-hidden="true"></i><a href="/ABuyer/Default">A.Buyer Researcher</a></li>
+                                <li><i class="fa fa-plane" aria-hidden="true"></i><a href="/aircraft-for-sale/aircraft-lease">Lease Opportunities</a></li>
+                                <li><i class="fa fa-plane" aria-hidden="true"></i><a href="/aircraft-for-sale/WantedClassification">Aircraft Wanted</a></li>
+                            </ul>
+                        </div>
+                    </div>-->
+                    <div class="right-column-ad" id="sq-ad-1"></div>
+                    <div class="right-column-ad" id="sq-ad-2"></div>
+                    <div class="right-column-ad" id="sq-ad-3"></div>
+                    <div class="right-column-ad" id="sq-ad-4"></div>
+                    <div class="right-column-ad" id="sq-ad-5"></div>
+                </div>
+            </aside>
+        </section><!-- ./innerContent -->
+
+        <section id="contentBlockTwo">
+            <section class="twoCol">
+                <div class="blockImg" style="background: url('https://resources.globalair.com/images/Feature-img.jpg?w=1000') right center no-repeat; background-size: cover;"></div>
+            </section>
+            <section itemscope itemtype="http://schema.org/Product" class="twoCol innerContent">
+                <h5 itemprop="name" class="subTitle">Feature Your Aircraft</h5>
+                <sub class="title price"><span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="vTop">$</span>20</sub>
+                <p class="subTitle">Per Month</p>
+                <p class="copy">They will notice your aircraft right away when features on GlobalAir.com. Your aircraft wil be highlighted in a green strake and will be placed at the top of the listings for that particular type of aircraft. This will expose you Aircraft for Sale and increase your chances of getting it in front of more buyers.</p>
+                <button class="button" type="button" value="featureAircraft" data-toggle="modal" data-target="#myModal">Setup in your dashboard now</button>
+            </section>
+        </section><!-- ./contentBlockTwo -->
+
+        <section id="contentBlockThree" class="innerContent">
+            <div class="left">
+                <h6>Planemail Email Broadcasts</h6>
+                <p class="subTitle">Maximize exposure for your Aircraft for Sale Listing</p>
+                <p class="copy">GlobalAir.com's PlaneMail email broadcast is sent bi-weekly to more than 71,000 aviation enthusiats, owners, pilots and professionals.</p>
+                <button class="button" type="button" value="learn" onclick="location.href='@Url.Action("PlaneMail", "MyAircraft")'">Learn More</button>
+            </div>
+            <div class="parallax"></div>
+        </section>
+    </div><!-- /.contentWrap -->
+</div><!-- /.wrap -->
+
+@section scripts{
+    <script src="https://use.fontawesome.com/0bf45687c8.js"></script>
+    @Scripts.Render("~/Scripts/Design")
+    <script type="text/javascript">
+        $(function () {
+            for (j = 1; j <= 5; j++) {
+                var ele = 'sq-ad-' + j;
+                insertBanManAd(ele, 'squareZones', j);
+            }
+        });
+    </script>
+
+    <!-- Purechat script -->
+    <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '113ad71f-256f-4f58-9510-660cff3051f5', f: true }); done = true; } }; })();</script>
+}

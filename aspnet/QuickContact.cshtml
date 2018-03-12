@@ -1,0 +1,177 @@
+﻿@model MainSite.Models.AircraftForSale.QuickContact
+
+<section class="contact-seller">
+    @if (Model.Title != null)
+    {
+    <div id="contacthdr" class="contact-header">@Model.Title</div>
+    }
+    <div id="divcontactmsg"></div>
+    <div class="contact-buttons">
+        <button id="call-button" class="c-button" style="display:none"></button>
+        <div id="call-box" style="display:none;"></div>
+
+        <button id="text-button" class="c-button" style="display:none"></button>
+        <div id="text-box" style="display:none"></div>
+
+        <button id="email-button" class="c-button" style="display:none"></button>
+        <div id="email-box" style="display:none"></div>
+
+        <div id="formpane" class="form-pane" style="display: none;">
+            <form id="frmAdInquiry" action="/aircraft-for-sale/SendInquiry" method="post" data-ajax-success="returnContactMsg" data-ajax-method="POST" data-ajax="true" data-ajax-failure="failedContactMsg">
+                <input type="hidden" id="InquiryLst" name="InquiryLst" />
+                <input type="hidden" id="inqSource" name="inqSource" />
+                <input type="text" id="contactName" name="contactName" placeholder="Name *" class="contact-field" required />
+                <input type="email" id="contactEmail" name="contactEmail" placeholder="Email *" class="contact-field" />
+                <input type="tel" id="contactTel" name="contactTel" placeholder="Phone Number *" class="contact-field" />
+                <input type="text" id="contactCompany" name="contactCompany" placeholder="Company" class="contact-field" />
+                <input type="text" id="contactLocation" name="contactLocation" placeholder="Location" class="contact-field" />
+                <textarea name="comments" class="contact-field" maxlength="500">@((!string.IsNullOrEmpty(Model.AdId))?"I would like to request more information about this aircraft.":"I would like to get in touch with you regarding...")</textarea>
+                <div class="email-only">
+                    <input type="checkbox" name="emailOnly" /><div id="only-text">Contact me by email only</div>
+                </div>
+
+                <div id="notrobot"></div>
+                <div class="email-send"><input type="submit" id="btnsendContact" value="SEND" onclick="return validateContactRequest()"></div>
+            </form>
+            <br />
+        </div>
+    </div>
+</section>
+
+<script src='https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit' async defer></script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-204701-2', 'auto');
+    ga('send', 'pageview');
+
+    var recaptchaCallback = function () {
+        grecaptcha.render("notrobot", {
+            'sitekey': '6LfYbg4TAAAAAGY8GXAHTjgapV-Z1upL6YuHxGY8',
+            'theme': 'light'
+        });
+    };
+
+    var ismobile;
+    var qcmodel;
+    var isPdf = '@ViewBag.GetPdf';
+    var pdfadid = '@ViewBag.AdId';
+    $(function () {
+        ismobile = @ViewBag.IsMobile;
+        qcmodel = @Html.Raw(Json.Encode(Model));
+        var inquirySrcRoot = qcmodel.InquirySrc;
+
+        var args = [];
+        if (qcmodel.BrokerId != null) {
+            var iql = {};
+            iql.inptAdId = qcmodel.AdId;
+            iql.inptBrokerId = qcmodel.BrokerId;
+            iql.YrModelDes = qcmodel.YrModelDes;
+            iql.serNum = qcmodel.SerialNum;
+            iql.regNum = qcmodel.RegNum;
+            args.push(iql);
+        }
+        else {
+            if (afsDefMod == null || afsDefMod.CompareListings == null || afsDefMod.CompareListings.length == 0)
+                throw "You must supply a model or afsdefmod with compare listings to this script";
+
+            $.each(afsDefMod.CompareListings, function (i, o) {
+                var mod = {};
+                mod.inptAdId = o.AdId;
+                mod.inptBrokerId = o.BrokerDtl.BrokerId;
+                mod.YrModelDes = o.PlaneTitle;
+                mod.serNum = o.SerialNum;
+                mod.regNum = o.RegNum;
+                args.push(mod);
+            });
+        }
+        $("#InquiryLst").val(JSON.stringify(args));
+        $("#inqSource").val(inquirySrcRoot + ((ismobile == 1) ? "M" : "D"));
+
+        if (afsDefMod != null && afsDefMod.CompareListings != null && afsDefMod.CompareListings.length > 0) {
+            // Compare Listings
+            $("#formpane").show();
+        }
+        else {
+            if (qcmodel.CellPhone != null && qcmodel.CellPhone != "") {
+                $("#text-button").show();
+            }
+
+            // PDF
+            if (qcmodel.InquirySrc == "Pdf") {
+                $("#formpane").show();
+                $("#frmAdInquiry").attr("action", "/aircraft-for-sale/GetSpecsAsPdf");
+                $("#frmAdInquiry").attr("data-ajax", "false");
+                $("#btnsendContact").attr("value", "Get PDF");
+            }
+            else {
+                $("#call-button").show();
+                $("#email-button").show();
+
+                $("#call-button").click(function (e) {
+                    var inqsrc = "Call" + inquirySrcRoot + ((ismobile == 1) ? "M" : "D");
+                    var cb = callButton(qcmodel.BrokerId, qcmodel.BusinessPhone, qcmodel.CellPhone, qcmodel.AdId, inqsrc, ismobile);
+                    var info = "";
+
+                    if (qcmodel.Name != null) {
+                        info += "<b>" + qcmodel.Name + "</b><br>";
+                    }
+                    if (afsDefMod != null && afsDefMod.BrokerDtl != null && afsDefMod.BrokerDtl.BrokerName != null) {
+                        info += "<b>" + afsDefMod.BrokerDtl.BrokerName + "</b><br>";
+                    }
+                    if (qcmodel.ContactName != null) {
+                        info += qcmodel.ContactName + "<br>";
+                    }
+                    cb.prepend(info);
+
+                    $("#email-box").hide();
+                    $("#text-box").hide();
+                    $("#call-box").html(cb).show();
+
+                    try {
+                        $("#divqc").dialog("option", "position", { my: "center", at: "center", of: window });
+                    }
+                    catch(ex){ }
+                });
+
+                $("#text-button").click(function (e) {
+                    $("#inqSource").val("Text" + inquirySrcRoot + ((ismobile == 1) ? "M" : "D"));
+                    $("#call-box").hide();
+                    $("#email-box").hide();
+
+                    if (qcmodel.CellPhone != null && qcmodel.CellPhone != '') {
+                        var fp = $(".form-pane").detach();
+                        fp.show();
+                        $("#text-box").html(fp).show();
+                    }
+                    else {
+                        $("#text-box").html('Texting not available with this client').show();
+                    }
+
+                    try {
+                        $("#divqc").dialog("option", "position", { my: "center", at: "center", of: window });
+                    }
+                    catch(ex){ }
+                });
+
+                $("#email-button").click(function (e) {
+                    $("#inqSource").val("Email" + inquirySrcRoot + ((ismobile == 1) ? "M" : "D"));
+                    $("#call-box").hide();
+                    $("#text-box").hide();
+                    var fp = $(".form-pane").detach();
+                    fp.show();
+                    $("#email-box").html(fp).show();
+                    try {
+                        $("#divqc").dialog("option", "position", { my: "center", at: "center", of: window });
+                    }
+                    catch(ex){ }
+                });
+            }
+        }
+    })
+</script>

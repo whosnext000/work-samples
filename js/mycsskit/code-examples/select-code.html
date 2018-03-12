@@ -1,0 +1,72 @@
+<h5>HTML Example</h5>
+    <xmp>
+<form id="select-style"><!-- This is necessary to style select -->
+	<select>
+        <option value="choose" selected disabled>Choose One</option>
+        <option value="opt1">Option 1</option>
+        <option value="opt2">Option 2</option>
+	</select>
+</form>
+    </xmp>
+    
+    <h5>CSS Example</h5>
+    <xmp>
+    /*** Select ***/
+
+select{
+	padding: 5px;
+	padding-right: 30px;
+	width: auto;
+	background-image:url(images/selectArrow.png);
+	background-repeat: no-repeat;
+	background-position: 90% center;
+	background-color: transparent;
+	border: 1px solid #FFFFFF;
+	-moz-box-shadow: 0 0 1px 0 #333333;
+	-webkit-box-shadow: 0 0 1px 0 #333333;
+	box-shadow: 0 0 1px 0 #333333;
+	cursor: pointer;
+	/* Chrome 10+,Safari */
+	-webkit-transition: all 240ms ease-in-out;
+	/* Firefox 4+ */
+	-moz-transition: all 240ms ease-in-out;
+	/* IE 9,10 */
+	-ms-transition: all 240ms ease-in-out;
+	/* Opera */
+	-o-transition: all 240ms ease-in-out;
+	/* W3C */
+	transition: all 240ms ease-in-out;
+	-moz-border-radius: 0 0 1px 0 #000000;
+	-webkit-border-radius: 0 0 1px 0 #000000;
+	border-radius: 0 0 1px 0 #000000;
+	-webkit-appearance:none;
+}
+
+select:focus{
+	-moz-box-shadow: 0 0 4px 0px #00a9ff;
+	-webkit-box-shadow: 0 0 4px 0px #00a9ff;
+	box-shadow: 0 0 4px 0px #00a9ff;
+	outline: none;
+}
+
+select option{
+	background-color:#eaeaea;
+	-moz-box-shadow: 0 0 4px 0px #00a9ff;
+	-webkit-box-shadow: 0 0 4px 0px #00a9ff;
+	box-shadow: 0 0 4px 0px #00a9ff;
+	border: 1px solid #FFFFFF;
+}
+
+#select-style{
+	background: #eaeaea; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eaeaea 0%, #f7f7f7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaeaea), color-stop(100%,#f7f7f7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eaeaea 0%,#f7f7f7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #eaeaea 0%,#f7f7f7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
+	overflow: hidden;
+	display: table;
+}
+    </xmp>

@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Tooltip */
+
+.tip{ /* This is any element that has a tooltip attached too it */
+	position:relative !important;
+	display:inline-block;
+}
+
+.tip > .tooltip{ /* Used to hide the tooltip */
+	display:none;
+}
+
+.tip:hover > .tooltip{ /* This shows the tooltip once an element with the .tip class is hovered over */
+	display:block;
+}
+
+.tooltip{ /* The styling on the tooltip */
+    background: none repeat scroll 0 0 #333333;
+    top: 30px;
+    color: #E7E7E7;
+	min-width:200px;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+	}
+	
+.tooltip:before{  /* Creates the arrow for the tooltip */
+	border-color: transparent transparent #333333 transparent;
+  	border-style: solid;
+  	border-width: 10px;
+  	height:0px;
+  	width:0px;
+  	position:absolute;
+  	right:5px;
+  	top:-20px;
+  	display:block;
+  	content:"\00a0";
+}
